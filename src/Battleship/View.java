@@ -11,7 +11,6 @@ import java.util.Observer;
 public class View implements Observer {
 
     private GameModel model;
-    private Board board;
     private Stage stage;
     private BorderPane root = new BorderPane();
 
@@ -20,15 +19,13 @@ public class View implements Observer {
         this.model = GameModel.getInstance();
         this.stage = stage;
         setObservable();
-
         initUI(stage);
     }
 
     private void initUI(Stage stage) {
 
-        //root.setLeft(layout);
+        //Instantiate the view with Transition
         root.setCenter(new Transition());
-
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Player " + Integer.toString(model.Turn()));
@@ -36,28 +33,24 @@ public class View implements Observer {
     }
 
     private void setObservable() {
+        // Sets the view as GameModel's observer
         GameModel.getInstance().addObserver(this);
     }
 
     @Override
     public void update(Observable o, Object arg) {
+        // Clears the Pane
         root.getChildren().clear();
 
+        // If the game is in transition phase Displays the Transition, otherwise the according board
         if (model.State()){
-            this.board = model.GetPlayer();
-            this.root.setCenter(this.board);
-
-            //draws the current Pin Object
-            /*
-            for (Pin pin : this.board.getPins()) {
-                root.getChildren().add(pin.c);
-
-            } */
+            this.root.setCenter(model.GetPlayer());
     }
         else{
             root.setCenter(new Transition());
 
         }
+        // Sets the title to the current player
         stage.setTitle("Player " + Integer.toString(model.Turn()));
     }
 }
