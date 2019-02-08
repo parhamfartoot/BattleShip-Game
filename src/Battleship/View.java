@@ -13,8 +13,9 @@ public class View implements Observer {
     private GameModel model;
     private Board board;
     private Stage stage;
+    private BorderPane root = new BorderPane();
 
-    public View(Stage stage) {
+    protected View(Stage stage) {
 
         this.model = GameModel.getInstance();
         this.stage = stage;
@@ -25,22 +26,8 @@ public class View implements Observer {
 
     private void initUI(Stage stage) {
 
-        //this.layout = new GridPane();
-        BorderPane root = new BorderPane();
-        if (model.State()){
-        this.board = model.GetPlayer();
-        root.setCenter(this.board);
-
-        ArrayList<Pin> pins = this.board.getPins();
-        for (Pin pin : pins) {
-            //draws the current Pin Object
-            root.getChildren().add(pin.c);
-        }}
-        else{
-            root.setCenter(new Transition());
-
-        }
         //root.setLeft(layout);
+        root.setCenter(new Transition());
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -54,8 +41,23 @@ public class View implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        new View(stage);
+        root.getChildren().clear();
 
+        if (model.State()){
+            this.board = model.GetPlayer();
+            this.root.setCenter(this.board);
 
+            //draws the current Pin Object
+            /*
+            for (Pin pin : this.board.getPins()) {
+                root.getChildren().add(pin.c);
+
+            } */
+    }
+        else{
+            root.setCenter(new Transition());
+
+        }
+        stage.setTitle("Player " + Integer.toString(model.Turn()));
     }
 }

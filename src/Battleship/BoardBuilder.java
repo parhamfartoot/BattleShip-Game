@@ -1,5 +1,6 @@
 package Battleship;
 
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
 
@@ -22,6 +23,7 @@ public class BoardBuilder {
         line.setStartY(height/2);
         line.setEndX(500);
         line.setEndY(height/2);
+        line.setStroke(Color.WHITE);
         this.board.getChildren().add(line);
     }
 
@@ -30,7 +32,7 @@ public class BoardBuilder {
         while (y < height) {
             int x = 25;
             while (x < width) {
-                this.board.addPin(new Pin(x, y));
+                this.board.getChildren().add(new Pin(x, y).c);
                 x += 50; }
             y += 50; }
         }

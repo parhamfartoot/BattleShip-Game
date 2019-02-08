@@ -8,19 +8,16 @@ import javafx.scene.input.MouseEvent;
 
 public class Pin implements EventHandler<MouseEvent>
 {
-    public  Circle c;
-
-
+    protected Circle c;
 
     public Pin(int x1, int y1)
     {
 
-        this.c = new Circle(x1,y1,5,Color.GREEN);
+        this.c = new Circle(x1,y1,5,Color.WHITE);
         this.c.setOnMouseClicked(
             new EventHandler<MouseEvent>(){
                 public void handle(MouseEvent e){
                     Clicked(e);
-
                 }
             });
 
@@ -35,8 +32,8 @@ public class Pin implements EventHandler<MouseEvent>
 
                 }
                 else if (model.IsInitPhase() && this.c.getCenterY() > Integer.parseInt(Settings.getInstance().GetSize()[1])/2){
-                    if (model.count < 5){model.count++;this.c.setFill(Color.RED);}
-                    if (model.count == 5) {model.count = 0;model.Start();model.ChangeState();model.ChangePlayer();}
+                    if (model.count < 8){model.count++;this.c.setFill(Color.RED);}
+                    if (model.count == 8) {model.count = 0;model.Start();model.ChangeState();model.ChangePlayer();}
                 }
         }
 

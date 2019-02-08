@@ -1,12 +1,12 @@
 package Battleship;
 
 import javafx.scene.canvas.Canvas;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.Pane;
 import java.util.ArrayList;
-import java.util.Observable;
-import java.util.Observer;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
-class Board extends StackPane{
+class Board extends Pane {
 
     private Canvas canvas;
     private ArrayList<Pin> pins = new ArrayList<Pin>();
@@ -15,9 +15,11 @@ class Board extends StackPane{
 
         this.canvas = new Canvas(Integer.parseInt(Settings.getInstance().GetSize()[0]), Integer.parseInt(Settings.getInstance().GetSize()[1]));
         this.getChildren().add(this.canvas);
-        // The canvas is transparent, so the background color of the
-        // containing pane serves as the background color of the canvas.
-        this.setStyle("-fx-background-color: white");
+        // Set the background image
+        this.setStyle("-fx-background-image: url('" + "/Art/BackGround/nebula_1.gif" + "'); " +
+                "-fx-background-position: center center; " +
+                "-fx-background-repeat: stretch;"+"-fx-background-size: cover;");
+
         new BoardBuilder(this);
 
     }
