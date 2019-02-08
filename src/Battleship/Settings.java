@@ -8,6 +8,10 @@ public class Settings {
     private int height = 1000;
     private String ar[] = new String[2];
 
+    protected String backGround = "-fx-background-image: url('" + "/Art/BackGround/nebula_1.gif" + "'); " +
+            "-fx-background-position: center center; " +
+            "-fx-background-repeat: stretch;"+"-fx-background-size: cover;";
+
     public Settings(){
         ar[0]= Integer.toString(width);
         ar[1] =Integer.toString(height);

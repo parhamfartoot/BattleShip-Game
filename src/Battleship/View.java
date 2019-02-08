@@ -3,8 +3,6 @@ package Battleship;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-
-import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 

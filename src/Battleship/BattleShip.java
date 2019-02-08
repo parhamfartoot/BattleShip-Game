@@ -5,7 +5,7 @@ import javafx.stage.Stage;
 
 public class BattleShip extends Application {
 
-    private View view; // View + Controller
+    private View view;
 
     public static void main(String[] args) {
         launch(args);

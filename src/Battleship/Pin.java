@@ -13,7 +13,7 @@ public class Pin implements EventHandler<MouseEvent>
     public Pin(int x1, int y1)
     {
 
-        this.c = new Circle(x1,y1,5,Color.WHITE);
+        this.c = new Circle(x1,y1,9,Color.WHITE);
         this.c.setOnMouseClicked(
             new EventHandler<MouseEvent>(){
                 public void handle(MouseEvent e){
@@ -25,16 +25,31 @@ public class Pin implements EventHandler<MouseEvent>
 
     private void Clicked(MouseEvent e) {
         GameModel model = GameModel.getInstance();
-                if(this.c.getCenterY() < Integer.parseInt(Settings.getInstance().GetSize()[1])/2 && model.IsInitPhase() == false){
+
+        if (model.IsInitPhase()){
+            if (this.c.getCenterY() > Integer.parseInt(Settings.getInstance().GetSize()[1])/2){
+                if (model.count < 8) {
+                    model.count++;
+                    this.c.setFill(Color.RED);
+                }
+                if (model.count == 8) {
+                    model.count = 0;
+                    model.Start();
+                    model.ChangeState();
+                    model.ChangePlayer();
+                }
+            }
+
+        }
+
+        else {
+                if(this.c.getCenterY() < Integer.parseInt(Settings.getInstance().GetSize()[1])/2){
                     this.c.setFill(Color.RED);
                     model.ChangeState();
                     model.ChangePlayer();
 
-                }
-                else if (model.IsInitPhase() && this.c.getCenterY() > Integer.parseInt(Settings.getInstance().GetSize()[1])/2){
-                    if (model.count < 8){model.count++;this.c.setFill(Color.RED);}
-                    if (model.count == 8) {model.count = 0;model.Start();model.ChangeState();model.ChangePlayer();}
-                }
+                }}
+
         }
 
         public void handle(MouseEvent e) {

@@ -3,7 +3,6 @@ package Battleship;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
-
 public class BoardBuilder {
     private Board board;
     private int height;

@@ -11,9 +11,8 @@ public class Transition extends StackPane {
 
     public Transition(){
         this.canvas = new Canvas(Integer.parseInt(Settings.getInstance().GetSize()[0]), Integer.parseInt(Settings.getInstance().GetSize()[1]));
-        this.setStyle("-fx-background-image: url('" + "/Art/BackGround/nebula_1.gif" + "'); " +
-                "-fx-background-position: center center; " +
-                "-fx-background-repeat: stretch;"+"-fx-background-size: cover;");
+        this.setStyle(Settings.getInstance().backGround);
+
         Button button = new Button("Next Player!");
         button.addEventHandler(MouseEvent.MOUSE_CLICKED,
                 new EventHandler<MouseEvent>() {

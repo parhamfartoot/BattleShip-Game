@@ -23,8 +23,8 @@ public class GameModel extends Observable{
         return single_instance;
     }
 
-    public void ChangePlayer(){if(this.player ==1)this.player = 2; else this.player =1;setChanged(); notifyObservers(); }
-    public void ChangeState(){if (state == true) state=false;else state = true;setChanged(); notifyObservers();}
+    public void ChangePlayer(){if(this.player ==1)this.player = 2; else this.player =1; setChanged();notifyObservers();}
+    public void ChangeState(){if (state == true) state=false;else state = true; setChanged(); notifyObservers();}
     public boolean State(){return state;}
     public void Start(){init++; if(init >=2)this.InitPhase = false;}
     public boolean IsInitPhase(){return this.InitPhase;}
