@@ -27,15 +27,15 @@ public class Pin
         if (model.IsInitPhase()){
             if (this.c.getCenterY() > Integer.parseInt(Settings.getInstance().GetSize()[1])/2){
                 if (model.count == 8) {
-                    model.count = 0;
+                    model.count = 1;
                     model.Start();
                     model.ChangeState();
                     model.ChangePlayer();
                 }
                 else {
                     model.count++;
-                    this.c.setFill(Color.RED);
                 }
+                this.c.setFill(Color.RED);
             }
         }
         else {

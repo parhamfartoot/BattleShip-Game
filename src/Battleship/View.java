@@ -23,7 +23,9 @@ public class View implements Observer {
     private void initUI(Stage stage) {
 
         //Instantiate the view with Transition
-        root.setCenter(new Transition());
+        Transition trans = new Transition();
+        trans.button.setText("Start !");
+        root.setCenter(trans);
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Player " + Integer.toString(model.Turn()));

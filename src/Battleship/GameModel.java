@@ -10,7 +10,7 @@ public class GameModel extends Observable{
     private Board player2 = new Board();
     private Boolean state = false;
 
-    public int count =0;
+    public int count =1;
     private int init=0;
 
     private static GameModel single_instance = null;

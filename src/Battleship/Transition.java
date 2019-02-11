@@ -8,12 +8,14 @@ import javafx.scene.control.Button;
 
 public class Transition extends StackPane {
     private Canvas canvas;
+    public Button button;
 
     public Transition(){
         this.canvas = new Canvas(Integer.parseInt(Settings.getInstance().GetSize()[0]), Integer.parseInt(Settings.getInstance().GetSize()[1]));
         this.setStyle(Settings.getInstance().backGround);
 
-        Button button = new Button("Next Player!");
+         this.button= new Button("Next Player!");
+
         button.addEventHandler(MouseEvent.MOUSE_CLICKED,
                 new EventHandler<MouseEvent>() {
                     @Override public void handle(MouseEvent e) {
