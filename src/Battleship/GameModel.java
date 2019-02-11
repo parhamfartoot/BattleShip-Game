@@ -19,7 +19,6 @@ public class GameModel extends Observable{
     {
         if (single_instance == null)
             single_instance = new GameModel();
-
         return single_instance;
     }
 

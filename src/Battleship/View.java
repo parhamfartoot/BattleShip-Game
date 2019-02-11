@@ -46,7 +46,6 @@ public class View implements Observer {
     }
         else{
             root.setCenter(new Transition());
-
         }
         // Sets the title to the current player
         stage.setTitle("Player " + Integer.toString(model.Turn()));

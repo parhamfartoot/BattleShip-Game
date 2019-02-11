@@ -15,7 +15,6 @@ class Board extends Pane {
         this.setStyle(Settings.getInstance().backGround);
         //Calls BoardBuilder to populate the board
         new BoardBuilder(this);
-
     }
 
     public int getH(){return (int)this.canvas.getHeight(); }
