@@ -2,3 +2,5 @@
 .idea/
 BB.iml
 src/.DS_Store
+out/
+BB.iml
