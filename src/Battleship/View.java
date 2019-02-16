@@ -28,7 +28,7 @@ public class View implements Observer {
         root.setCenter(trans);
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("Player " + Integer.toString(model.Turn()));
+        stage.setTitle("Player " + model.Turn());
         stage.show();
     }
 
@@ -50,6 +50,6 @@ public class View implements Observer {
             root.setCenter(new Transition());
         }
         // Sets the title to the current player
-        stage.setTitle("Player " + Integer.toString(model.Turn()));
+        stage.setTitle("Player " + model.Turn());
     }
 }

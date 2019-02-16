@@ -1,0 +1,63 @@
+
+
+-------------------------------------------------------------------------------
+Type: UserStory 1
+Name: implement shot fire
+Issue: The shot pin needs to be recorded and have changes applied to the enemy
+board. (E.g if the shot was a hit turn the pin Red, otherwise Orange. Same with
+the enemy board.) Keep in mind that the changes must be applied to the lower part
+of the enemy board.
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Type: UserStory 2.1
+Name: Add Ship models
+Issue: we need 8 different SpaceShip models, 4 for each player(Just to add a bit
+of extra visuals). Make sure all artwork is credited in the credit.text
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Type: UserStory 2.2
+Name: Map Ship models
+Issue: Map each model with Pins so that we would be able to draw then on the screen
+and check for collisions. Keep in mind that the Pins need to have a proper distance
+from each other. At the moment the center of each pin is 50 unit away from the other
+Pins, both on the X-axis and Y-axis.
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Type: UserStory 2.3
+Name: Drag and drop Ships
+Issue: We need to be able to drag and drop our ships to the screen during the
+initial phase. In order to achieve this we must check the mapped Pins on the Ship
+and the Board Pins, and if they are colliding then we can drop the ship.
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Type: UserStory 3
+Name: Start screen
+Issue: We need to add a start in Screen, replacing the Transition Screen At the
+Start of the game. On this screen a player would be able to choose so Setting options
+That Includes the Pre-set sizes for map. (E.g Small, Medium, Large) and Choosing the
+game mode (E.g Single player and Two player)
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Type: UserStory 4.1
+Name: Single Player
+Issue: Create a single player Mode for the Game
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Type: UserStory 4.2
+Name: AI fleet placement
+Issue: In the single player mode, the AI needs to be able to place the ships during
+the placement phase.
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Type: UserStory 4.3
+Name: AI fire
+Issue: The AI must be able to make the Choose at each turn according to where to shot.
+Keep in mind this shouldn't be pure random. The AI should be able to Make the best decision.
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+
+
+
+
+# COMPLETED USER STORIES/BUGS BELOW ###########################################

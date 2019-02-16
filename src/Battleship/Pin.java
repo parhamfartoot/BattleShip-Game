@@ -5,6 +5,8 @@ import javafx.scene.shape.Circle;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
+import java.lang.reflect.Array;
+
 public class Pin
 {
     protected Circle c;
@@ -41,9 +43,21 @@ public class Pin
         else {
                 if(this.c.getCenterY() < Integer.parseInt(Settings.getInstance().GetSize()[1])/2){
                     this.c.setFill(Color.RED);
+                    //int i =model.GetPlayer().getChildren().indexOf(c);
+                    //System.out.println(model.GetEnemy().getChildren().get(i));
                     model.ChangeState();
                     model.ChangePlayer();
                 }}
 
         }
+        /*
+        private void Shot(Circle c){
+            Board enemy = GameModel.getInstance().GetEnemy();
+            list = enemy.getChildren().subList(1,(enemy.getChildren().size())-1);
+            for (Circle : enemy.getChildren()){
+
+
+           }
+
+        } */
     }

@@ -12,8 +12,8 @@ public class BoardBuilder {
         this.board = board;
         this.height = this.board.getH();
         this.width = this.board.getW();
-        this.Make_pin();
         this.Separate();
+        this.Make_pin();
 
     }
     private void Separate() {

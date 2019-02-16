@@ -2,6 +2,8 @@ package Battleship;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 
 class Board extends Pane {
 
@@ -15,6 +17,7 @@ class Board extends Pane {
         this.setStyle(Settings.getInstance().backGround);
         //Calls BoardBuilder to populate the board
         new BoardBuilder(this);
+
     }
 
     public int getH(){return (int)this.canvas.getHeight(); }
