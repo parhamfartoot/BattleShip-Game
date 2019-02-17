@@ -17,9 +17,9 @@ public class Ship{
 	public Ship(String name){
 		//retrieved the five types of ships from https://www.cs.nmsu.edu/~bdu/TA/487/brules.htm
 		this.name = name;
-		this.x = NULL;
-		this.y = NULL;
-		this.direction_placement = NULL; 
+		this.x = 0;
+		this.y = 0;
+		this.direction_placement = "";
 
 		if (name == "Carrier"){
 			this.length = 5; }
