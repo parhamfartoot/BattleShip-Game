@@ -11,6 +11,9 @@ public class GameModel extends Observable{
     private Board player1 = new Board();
     private Board player2 = new Board();
     private Boolean state = false;
+    private Boolean mutliplayer = true;
+    private int boardsize = 0;
+    private int selection = 0;
     protected Circle shot = null;
 
     public int count =1;
@@ -39,10 +42,24 @@ public class GameModel extends Observable{
         else state = true;
         setChanged(); notifyObservers();
     }
-
+    
+    public void NextSelection(){
+    	this.selection++;
+    	setChanged(); notifyObservers();
+    }
+    
+    public void setSelection(int sel){
+    	this.selection = sel;
+    }
+    
+    public void setMultiplayer(Boolean multi){
+    	this.mutliplayer = multi;
+    }
+    
     public boolean State(){
         return state;
     }
+    
     public void Start(){
         init++;
         if(init >=2)
@@ -51,6 +68,10 @@ public class GameModel extends Observable{
 
     public boolean IsInitPhase(){return this.InitPhase;}
     public int Turn(){return this.player;}
+
+    public int getSelection(){
+    	return this.selection;
+    }
 
     public Board GetPlayer(){
         if (this.player == 1){
