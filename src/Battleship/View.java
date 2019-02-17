@@ -23,6 +23,7 @@ public class View implements Observer {
     private void initUI(Stage stage) {
         //Instantiate the view with Start Menu
         root.setCenter(gamemenu);
+
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Welcome to BattleShips!");
@@ -39,18 +40,22 @@ public class View implements Observer {
         // Clears the Pane
         root.getChildren().clear();
         //If game options were selected during Start Menu
-        if (model.getSelection() > 1){
-	        // If the game is in transition phase Displays the Transition, otherwise the according board
-	        if (model.State()){
-	            this.root.setCenter(model.GetPlayer());
-	        } else{
-	            root.setCenter(new Transition());
-	        }
-	        // Sets the title to the current player
-	        stage.setTitle("Player " + model.Turn());
-	    // Start Menu Selection
+        if (model.getSelection() > 1) {
+            // If the game is in transition phase Displays the Transition, otherwise the according board
+            if (model.State()) {
+                this.root.setCenter(model.GetPlayer());
+                //root.setLeft(new ShipChooser());
+            } else {
+                root.setCenter(new Transition());
+            }
+            // Sets the title to the current player
+            stage.setTitle("Player " + model.Turn());
+            // Start Menu Selection
         } else {
-        	this.root.setCenter(new Menu(model.getSelection()));
+            this.root.setCenter(new Menu(model.getSelection()));
+            // Sets the title to the current player
+            stage.setTitle("Player " + model.Turn());
+
         }
     }
 }

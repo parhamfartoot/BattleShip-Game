@@ -43,8 +43,10 @@ public class Pin
         else {
                 if(this.c.getCenterY() < Integer.parseInt(Settings.getInstance().GetSize()[1])/2){
                     this.c.setFill(Color.RED);
+
                     //int i =model.GetPlayer().getChildren().indexOf(c);
                     //System.out.println(model.GetEnemy().getChildren().get(i));
+
                     model.ChangeState();
                     model.ChangePlayer();
                 }}

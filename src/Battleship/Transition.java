@@ -1,6 +1,7 @@
 package Battleship;
 
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.canvas.Canvas;
