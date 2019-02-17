@@ -5,27 +5,35 @@ import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
 
-class Ships {
-    ArrayList<Pin> Crtitical = new ArrayList<Pin>();
+public class Ships {
+    protected ArrayList<Pin> Crtitical = new ArrayList<Pin>();
     private int Width;
     private int Height;
     private ImageView img;
+    private Image Ship;
 
-    public Ships(){
+    protected Ships(){
 
     }
 
-    void setW(int W){ this.Width = W; }
-    void setH(int H){this.Height = H; }
+    protected void setW(int W){ this.Width = W; }
+    protected void setH(int H){this.Height = H; }
 
-    void setArt(String s){
-        Image Ship = new Image(s);
+    int getW(int W){ return Width; }
+    int getH(int H){return Height; }
+
+    protected void setArt(String s){
+        this.Ship= new Image(s);
         this.img =new ImageView(Ship);
         img.setFitWidth(Width);
         img.setFitHeight(Height);
     }
-    ImageView getShip(){
+    protected ImageView getShip(){
         return img;
+    }
+
+    protected Image getImage(){
+        return this.Ship;
     }
 
 }

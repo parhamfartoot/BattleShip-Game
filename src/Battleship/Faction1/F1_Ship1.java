@@ -1,5 +1,7 @@
-package Battleship;
+package Battleship.Faction1;
 
+import Battleship.Pin;
+import Battleship.Ships;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 

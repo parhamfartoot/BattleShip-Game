@@ -13,19 +13,19 @@ public class GameModel extends Observable{
     private Boolean state = false;
     protected Circle shot = null;
 
-    public int count =1;
+    int count =1;
     private int init=0;
 
     private static GameModel single_instance = null;
 
-    public static GameModel getInstance()
+    static GameModel getInstance()
     {
         if (single_instance == null)
             single_instance = new GameModel();
         return single_instance;
     }
 
-    public void ChangePlayer(){
+    void ChangePlayer(){
 
         if(this.player ==1)
             this.player = 2;
@@ -33,26 +33,26 @@ public class GameModel extends Observable{
         setChanged();notifyObservers();
     }
 
-    public void ChangeState(){
-        if (state == true)
-            state=false;
-        else state = true;
+    void ChangeState(){
+        state = !state;
         setChanged(); notifyObservers();
     }
 
-    public boolean State(){
+    boolean State(){
         return state;
     }
-    public void Start(){
+    void Start(){
         init++;
         if(init >=2)
             this.InitPhase = false;
     }
 
-    public boolean IsInitPhase(){return this.InitPhase;}
-    public int Turn(){return this.player;}
+    boolean IsInitPhase(){return this.InitPhase;}
+    int Turn(){return this.player;}
 
-    public Board GetPlayer(){
+    int Player(){return this.player;}
+
+    Board GetPlayer(){
         if (this.player == 1){
             return player1;
         } else return player2; }
