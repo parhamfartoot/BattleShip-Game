@@ -11,7 +11,7 @@ public class Transition extends StackPane {
     public Button button;
 
     public Transition(){
-        this.canvas = new Canvas(Integer.parseInt(Settings.getInstance().GetSize()[0]), Integer.parseInt(Settings.getInstance().GetSize()[1]));
+        this.canvas = new Canvas(Integer.parseInt(Settings.getInstance().GetSize()[0])+100, Integer.parseInt(Settings.getInstance().GetSize()[1]));
         this.setStyle(Settings.getInstance().backGround);
 
          this.button= new Button("Next Player!");

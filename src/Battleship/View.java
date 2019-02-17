@@ -26,6 +26,7 @@ public class View implements Observer {
         Transition trans = new Transition();
         trans.button.setText("Start !");
         root.setCenter(trans);
+
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Player " + model.Turn());
@@ -51,5 +52,7 @@ public class View implements Observer {
         }
         // Sets the title to the current player
         stage.setTitle("Player " + model.Turn());
+
+        root.setLeft(new ShipChooser());
     }
 }
