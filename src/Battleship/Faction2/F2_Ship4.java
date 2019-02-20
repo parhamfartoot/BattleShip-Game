@@ -12,7 +12,7 @@ public class F2_Ship4 extends Ships {
 
         setH(100);setW(50);
 
-        setArt("Art/SpaceShips/Faction1/Ship4.png");
+        setArt("Art/SpaceShips/Faction2/Ship4.png");
 
     }
 }

@@ -44,7 +44,7 @@ public class View implements Observer {
             // If the game is in transition phase Displays the Transition, otherwise the according board
             if (model.State()) {
                 this.root.setCenter(model.GetPlayer());
-                //root.setLeft(new ShipChooser());
+                root.setLeft(new ShipChooser());
             } else {
                 root.setCenter(new Transition());
             }
@@ -56,19 +56,7 @@ public class View implements Observer {
             // Sets the title to the current player
             stage.setTitle("Player " + model.Turn());
 
-            if (model.getSelection() > 1) {
-                // If the game is in transition phase Displays the Transition, otherwise the according board
-                if (model.State()) {
-                    this.root.setCenter(model.GetPlayer());
-                } else {
-                    root.setCenter(new Transition());
-                }
-                // Sets the title to the current player
-                stage.setTitle("Player " + model.Turn());
-                // Start Menu Selection
-            } else {
-                this.root.setCenter(new Menu(model.getSelection()));
-            }
+
         }
     }
 }
