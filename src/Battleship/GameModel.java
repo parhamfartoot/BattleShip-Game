@@ -40,6 +40,7 @@ public class GameModel extends Observable{
         state = !state;
         setChanged(); notifyObservers();
     }
+
     void NextSelection(){
     	this.selection++;
     	setChanged(); notifyObservers();
@@ -48,7 +49,7 @@ public class GameModel extends Observable{
     public void setSelection(int sel){
     	this.selection = sel;
     }
-    
+
     void setMultiplayer(Boolean multi){
     	this.mutliplayer = multi;
     }
@@ -56,8 +57,8 @@ public class GameModel extends Observable{
     boolean State(){
         return state;
     }
-
-    void Start(){
+    
+    public void Start(){
         init++;
         if(init >=2)
             this.InitPhase = false;
@@ -72,7 +73,8 @@ public class GameModel extends Observable{
 
     int Player(){return this.player;}
 
-    Board GetPlayer(){
+
+    public Board GetPlayer(){
         if (this.player == 1){
             return player1;
         } else return player2; }

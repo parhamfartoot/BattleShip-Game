@@ -16,9 +16,10 @@ public class Menu extends FlowPane {
 
     public Menu(int selection){
     	// Pane Settings
-    	//this.setMaxSize(Integer.parseInt(Settings.getInstance().GetSize()[0]), Integer.parseInt(Settings.getInstance().GetSize()[1]));
-		this.setMinSize(Integer.parseInt(Settings.getInstance().GetSize()[0]), Integer.parseInt(Settings.getInstance().GetSize()[1]));
-    	//this.setPadding(new Insets(5, 0, 5, 0));
+
+    	this.setMinSize(Integer.parseInt(Settings.getInstance().GetSize()[0]), Integer.parseInt(Settings.getInstance().GetSize()[1]));
+    	this.setPadding(new Insets(5, 0, 5, 0));
+
     	this.setVgap(4);
     	this.setHgap(4);
     	this.setStyle("-fx-background-color: DAE6F3");
