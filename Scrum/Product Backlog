@@ -9,20 +9,6 @@ the enemy board.) Keep in mind that the changes must be applied to the lower par
 of the enemy board.
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
-Type: UserStory 2.1
-Name: Add Ship models
-Issue: we need 8 different SpaceShip models, 4 for each player(Just to add a bit
-of extra visuals). Make sure all artwork is credited in the credit.text
--------------------------------------------------------------------------------
--------------------------------------------------------------------------------
-Type: UserStory 2.2
-Name: Map Ship models
-Issue: Map each model with Pins so that we would be able to draw then on the screen
-and check for collisions. Keep in mind that the Pins need to have a proper distance
-from each other. At the moment the center of each pin is 50 unit away from the other
-Pins, both on the X-axis and Y-axis.
--------------------------------------------------------------------------------
--------------------------------------------------------------------------------
 Type: UserStory 2.3
 Name: Drag and drop Ships
 Issue: We need to be able to drag and drop our ships to the screen during the
@@ -61,3 +47,18 @@ Keep in mind this shouldn't be pure random. The AI should be able to Make the be
 
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
+
+-------------------------------------------------------------------------------
+Type: UserStory 2.1
+Name: Add Ship models
+Issue: we need 8 different SpaceShip models, 4 for each player(Just to add a bit
+of extra visuals). Make sure all artwork is credited in the credit.text
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Type: UserStory 2.2
+Name: Map Ship models
+Issue: Map each model with Pins so that we would be able to draw then on the screen
+and check for collisions. Keep in mind that the Pins need to have a proper distance
+from each other. At the moment the center of each pin is 50 unit away from the other
+Pins, both on the X-axis and Y-axis.
+-------------------------------------------------------------------------------
