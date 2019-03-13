@@ -44,7 +44,8 @@ public class View implements Observer {
             // If the game is in transition phase Displays the Transition, otherwise the according board
             if (model.State()) {
                 this.root.setCenter(model.GetPlayer());
-                root.setLeft(new ShipChooser());
+                    if (model.IsInitPhase())
+                    root.setLeft(new ShipChooser());
             } else {
                 root.setCenter(new Transition());
             }

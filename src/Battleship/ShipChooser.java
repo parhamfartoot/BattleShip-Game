@@ -8,9 +8,14 @@ import Battleship.Faction2.F2_Ship1;
 import Battleship.Faction2.F2_Ship2;
 import Battleship.Faction2.F2_Ship3;
 import Battleship.Faction2.F2_Ship4;
+import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
 class ShipChooser extends GridPane {
+
+    double orgSceneX, orgSceneY;
+    double orgTranslateX, orgTranslateY;
 
     ShipChooser(){
 
@@ -38,7 +43,5 @@ class ShipChooser extends GridPane {
             this.add(f2_S4.getShip(),0,3);
 
         }
-
-
     }
 }

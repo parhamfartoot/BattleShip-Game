@@ -5,8 +5,6 @@ import javafx.scene.shape.Circle;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
-import java.lang.reflect.Array;
-
 public class Pin
 {
     protected Circle c;
@@ -28,16 +26,27 @@ public class Pin
 
         if (model.IsInitPhase()){
             if (this.c.getCenterY() > Integer.parseInt(Settings.getInstance().GetSize()[1])/2){
-                if (model.count == 8) {
-                    model.count = 1;
-                    model.Start();
-                    model.ChangeState();
-                    model.ChangePlayer();
+
+                if (GameModel.getInstance().shipToPlace != null) {
+
+                    model.shipToPlace.getShip().setX(c.getCenterX() - 25);
+                    model.shipToPlace.getShip().setY(c.getCenterY() - 25);
+                    model.GetPlayer().getChildren().add(0,model.shipToPlace.getShip());
+                    model.shipToPlace.Align();
+
+                    if (model.count == 4) {
+                        model.count = 1;
+                        model.Start();
+                        model.ChangeState();
+                        model.ChangePlayer();
+                    }
+                    else {
+                        model.count++;
+                    }
                 }
-                else {
-                    model.count++;
-                }
-                this.c.setFill(Color.RED);
+                GameModel.getInstance().shipToPlace = null;
+
+
             }
         }
         else {

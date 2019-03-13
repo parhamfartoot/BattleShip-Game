@@ -15,13 +15,14 @@ public class GameModel extends Observable{
     private int boardsize = 0;
     private int selection = 0;
     protected Circle shot = null;
+    public Ships shipToPlace;
 
     int count =1;
     private int init=0;
 
     private static GameModel single_instance = null;
 
-    static GameModel getInstance()
+    public static GameModel getInstance()
     {
         if (single_instance == null)
             single_instance = new GameModel();
