@@ -13,11 +13,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
 class ShipChooser extends GridPane {
-
-    double orgSceneX, orgSceneY;
-    double orgTranslateX, orgTranslateY;
+/* ShapeChooser is a GridPane that has the Ships players can chose from for placement
+ *
+ */
 
     ShipChooser(){
+        // There are 8 ship models, 4 in each faction and each player will be one of the factions
 
         F1_Ship1 f1_S1 = new F1_Ship1();
         F1_Ship2 f1_S2 = new F1_Ship2();
@@ -29,6 +30,7 @@ class ShipChooser extends GridPane {
         F2_Ship3 f2_S3 = new F2_Ship3();
         F2_Ship4 f2_S4 = new F2_Ship4();
 
+        //Shows the appropriate Ship model for the player
         if (GameModel.getInstance().Player() ==1){
 
             this.add(f1_S1.getShip(),0,0);

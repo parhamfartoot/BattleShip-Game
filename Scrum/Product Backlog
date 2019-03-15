@@ -71,6 +71,12 @@ Name: Duplicate Ships
 Issue: Currently the player can place a ship on the board more than once. This is a 
 Forbidden state and only one instance per each type of ship should be allowed
 -------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Type: Bug 3
+Name: Pins clicked
+Issue: Currently the player can click on a certain pin to shoot during game more than once. Once a pin has been chose for a shot they should no longer count as a new shot.
+-------------------------------------------------------------------------------
+
 
 
 

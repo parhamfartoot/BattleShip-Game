@@ -7,6 +7,9 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class View implements Observer {
+    /* View is an observer, it has GameModel, Stage, BorderPane and Menu
+     * View has GameModel as its observer and when change is made to GameModel the view will update, displaying the appropriate view for the game
+     */
 
     private GameModel model;
     private Stage stage;

@@ -1,12 +1,8 @@
 package Battleship;
 
-import Battleship.Faction1.F1_Ship1;
-import Battleship.Faction1.F1_Ship4;
-import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.geometry.Point2D;

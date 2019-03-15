@@ -1,27 +1,30 @@
 package Battleship;
 
 import javafx.scene.shape.Circle;
-
 import java.util.Observable;
 
 public class GameModel extends Observable{
+    /* GameModel is a singleton class that extends observable
+     * GameModel keeps track of the boards used in game, the ship that should be placed on board(if any) and also which player should play next
+     * as well as which phase of the game it currently is (placement phase or attack phase)
+     * every time a turn ends the GameModel is changed and notifies it observer
+     */
 
-    private boolean InitPhase = true;
-    private int player =1;
-    private Board player1 = new Board();
-    private Board player2 = new Board();
+    private boolean InitPhase = true; //The placement phase
+    private int player =1; //the player whom turn it is
+    private Board player1 = new Board(); // Player1's board
+    private Board player2 = new Board(); // Player2's board
     private Boolean state = false;
     private Boolean mutliplayer = true;
     private int boardsize = 0;
     private int selection = 0;
     protected Circle shot = null;
-    public Ships shipToPlace;
-
+    public Ships shipToPlace; // The ship that needs to be placed on board
     int count =1;
     private int init=0;
 
+    //declares the GameModel as singleton
     private static GameModel single_instance = null;
-
     public static GameModel getInstance()
     {
         if (single_instance == null)
@@ -30,7 +33,7 @@ public class GameModel extends Observable{
     }
 
     void ChangePlayer(){
-
+        //Changes the player that should play and notifies the observer
         if(this.player ==1)
             this.player = 2;
         else this.player =1;
@@ -38,11 +41,13 @@ public class GameModel extends Observable{
     }
 
     void ChangeState(){
+        //Changes the state of the game and notifies the observer
         state = !state;
         setChanged(); notifyObservers();
     }
 
     void NextSelection(){
+        //Goes to the next selection menu and notifies the observer
     	this.selection++;
     	setChanged(); notifyObservers();
     }
@@ -56,16 +61,18 @@ public class GameModel extends Observable{
     }
     
     boolean State(){
+        // return the current state
         return state;
     }
     
     public void Start(){
+        // starts the game for one player
         init++;
         if(init >=2)
             this.InitPhase = false;
     }
 
-    boolean IsInitPhase(){return this.InitPhase;}
+    boolean IsInitPhase(){return this.InitPhase;} //returns whether the place
     int Turn(){return this.player;}
 
     public int getSelection(){
