@@ -1,4 +1,18 @@
-
+-------------------------------------------------------------------------------
+Type: UserStory 1.1
+Name: Score Board
+Issue: There should be an score board, showing the players total score as they play
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Type: UserStory 1.2
+Name: highest_score_wins
+Issue: When a player reaches the max score ( having destroyed all enemy ships) the game should end and they should be announced as the winner
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Type: UserStory 1.3
+Name: Show the state of shot
+Issue: After a shot has been made, the transition screen should inform the player whether their shot was a hit, or a miss.
+-------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
 Type: UserStory 3
 Name: Start screen
