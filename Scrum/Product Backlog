@@ -1,20 +1,4 @@
 
-
--------------------------------------------------------------------------------
-Type: UserStory 1
-Name: implement shot fire
-Issue: The shot pin needs to be recorded and have changes applied to the enemy
-board. (E.g if the shot was a hit turn the pin Red, otherwise Orange. Same with
-the enemy board.) Keep in mind that the changes must be applied to the lower part
-of the enemy board.
--------------------------------------------------------------------------------
--------------------------------------------------------------------------------
-Type: UserStory 2.3
-Name: Drag and drop Ships
-Issue: We need to be able to drag and drop our ships to the screen during the
-initial phase. In order to achieve this we must check the mapped Pins on the Ship
-and the Board Pins, and if they are colliding then we can drop the ship.
--------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
 Type: UserStory 3
 Name: Start screen
@@ -96,4 +80,19 @@ Issue: Map each model with Pins so that we would be able to draw then on the scr
 and check for collisions. Keep in mind that the Pins need to have a proper distance
 from each other. At the moment the center of each pin is 50 unit away from the other
 Pins, both on the X-axis and Y-axis.
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Type: UserStory 2.3
+Name: Drag and drop Ships
+Issue: We need to be able to drag and drop our ships to the screen during the
+initial phase. In order to achieve this we must check the mapped Pins on the Ship
+and the Board Pins, and if they are colliding then we can drop the ship.
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Type: UserStory 1
+Name: implement shot fire
+Issue: The shot pin needs to be recorded and have changes applied to the enemy
+board. (E.g if the shot was a hit turn the pin Red, otherwise Orange. Same with
+the enemy board.) Keep in mind that the changes must be applied to the lower part
+of the enemy board.
 -------------------------------------------------------------------------------

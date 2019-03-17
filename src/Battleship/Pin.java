@@ -1,5 +1,6 @@
 package Battleship;
 
+import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.event.EventHandler;
@@ -60,10 +61,34 @@ public class Pin
         else { //The game is not in the placement phase
             //Checks if the enemy half of the board has been clicked
                 if(this.c.getCenterY() < Integer.parseInt(Settings.getInstance().GetSize()[1])/2){
-                    // Changes the color of the pin and Changes the player
-                    this.c.setFill(Color.RED);
+                    // Checks if the fire was a hit and Changes the player
+                    IsHit(this.c);
                     model.ChangeState();
                     model.ChangePlayer();
-                }}
-        }
-    }
+                        }
+                    }
+                }
+
+    private void IsHit(Circle c){
+        //Checks if the shot fires was a hit and acts accordingly
+
+        double hitX = c.getCenterX(); //appropriate X-axis value of shot fired on enemy board
+        double hitY = c.getCenterY() +500; //appropriate Y-axis value of shot fired on enemy board
+        Board board = GameModel.getInstance().GetEnemy(); //Enemies board
+        
+        for (Node n: board.getChildren()){
+            if (n instanceof Circle){
+                if (((Circle) n).getCenterY() == hitY && ((Circle) n).getCenterX() == hitX)
+                {
+                    if (((Circle) n).getFill().equals(Color.GREEN)) //Checks if a ship has been placed on that pin
+                        {
+                            // Changes the color of pins to red if shot was a hit
+                        ((Circle) n).setFill(Color.RED);
+                        this.c.setFill(Color.RED);
+                        }
+                    else this.c.setFill(Color.YELLOW); //Change color to yellow if the shot was a miss
+                                }
+                            }
+                        }
+                }
+}
