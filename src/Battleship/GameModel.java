@@ -22,6 +22,7 @@ public class GameModel extends Observable{
     public Ships shipToPlace; // The ship that needs to be placed on board
     int count =1;
     private int init=0;
+    private int[] score = new int[2];
 
     //declares the GameModel as singleton
     private static GameModel single_instance = null;
@@ -65,7 +66,7 @@ public class GameModel extends Observable{
         return state;
     }
     
-    public void Start(){
+    void Start(){
         // starts the game for one player
         init++;
         if(init >=2)
@@ -75,20 +76,32 @@ public class GameModel extends Observable{
     boolean IsInitPhase(){return this.InitPhase;} //returns whether the place
     int Turn(){return this.player;}
 
-    public int getSelection(){
+    int getSelection(){
     	return this.selection;
     }
 
     int Player(){return this.player;}
 
 
-    public Board GetPlayer(){
+    Board GetPlayer(){
+        //Returns the board of the player who is currently playing
         if (this.player == 1){
             return player1;
         } else return player2; }
 
-    public Board GetEnemy(){
+    Board GetEnemy(){
+        //Returns the board of the next player
         if (this.player == 2){
             return player1;
         } else return player2; }
+
+    int GetScore(){
+        //Returns the score of the player
+        if (player ==1) return score[1];
+        else return score[0];
+    }
+    void AddScore(){
+        //Adds to the score of the player
+        score[Player()-1] += 50;
+    }
 }

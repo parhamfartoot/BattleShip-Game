@@ -1,8 +1,4 @@
--------------------------------------------------------------------------------
-Type: UserStory 1.1
-Name: Score Board
-Issue: There should be an score board, showing the players total score as they play
--------------------------------------------------------------------------------
+
 -------------------------------------------------------------------------------
 Type: UserStory 1.2
 Name: highest_score_wins
@@ -109,4 +105,9 @@ Issue: The shot pin needs to be recorded and have changes applied to the enemy
 board. (E.g if the shot was a hit turn the pin Red, otherwise Orange. Same with
 the enemy board.) Keep in mind that the changes must be applied to the lower part
 of the enemy board.
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Type: UserStory 1.1
+Name: Score Board
+Issue: There should be an score board, showing the players total score as they play
 -------------------------------------------------------------------------------

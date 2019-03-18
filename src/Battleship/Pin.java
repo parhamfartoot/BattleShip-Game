@@ -85,6 +85,8 @@ public class Pin
                             // Changes the color of pins to red if shot was a hit
                         ((Circle) n).setFill(Color.RED);
                         this.c.setFill(Color.RED);
+                        //Adds to the players score
+                        GameModel.getInstance().AddScore();
                         }
                     else this.c.setFill(Color.YELLOW); //Change color to yellow if the shot was a miss
                                 }
