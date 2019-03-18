@@ -12,12 +12,14 @@ public class Pin
      * Every time the circle component of a pin is clicked on, based on the information about the state of the game stored in GameModel
      * the pin will act accordingly (Change color, go to the next player and etc.)
      */
-    protected Circle c;
+    Circle c;
+    Boolean hasClicked;
 
     public Pin(int x1, int y1) {
         // Create a circle object for the pin and add a listiner to the circle
 
-        this.c = new Circle(x1, y1,9, Color.WHITE);
+        this.c = new Circle(x1, y1,9, Color.WHITE);//Add the circle for the pin
+        this.hasClicked = false;//Shows if the pin has been clicked yet or not
 
         this.c.setOnMouseClicked(
             new EventHandler<MouseEvent>(){
@@ -34,9 +36,8 @@ public class Pin
         if (model.IsInitPhase()){
             // Check if the game is at the placement phase
             if (this.c.getCenterY() > Integer.parseInt(Settings.getInstance().GetSize()[1])/2){
-                // Checks if the player has clicked on the appropriate half of the map
-
-                if (GameModel.getInstance().shipToPlace != null) {
+                // Checks if the player has clicked on the appropriate half of the map and that pin has not been clicked before
+                if ((GameModel.getInstance().shipToPlace != null)&& !this.hasClicked) {
                     // Places the ship that has been chosen by player on the board
 
                     model.shipToPlace.getShip().setX(c.getCenterX() - 25);
@@ -53,18 +54,20 @@ public class Pin
                     }
                     else {
                         model.count++;
-                    }
+                    }this.hasClicked =true;
                 }
                 GameModel.getInstance().shipToPlace = null;
+
             }
         }
         else { //The game is not in the placement phase
             //Checks if the enemy half of the board has been clicked
-                if(this.c.getCenterY() < Integer.parseInt(Settings.getInstance().GetSize()[1])/2){
+                if((this.c.getCenterY() < Integer.parseInt(Settings.getInstance().GetSize()[1])/2)&& !this.hasClicked){
                     // Checks if the fire was a hit and Changes the player
                     IsHit(this.c);
                     model.ChangeState();
                     model.ChangePlayer();
+                    this.hasClicked =true;
                         }
                     }
                 }
