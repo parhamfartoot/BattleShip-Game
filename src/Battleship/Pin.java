@@ -6,6 +6,8 @@ import javafx.scene.shape.Circle;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
+import static Battleship.Ships.Align;
+
 public class Pin
 {
     /* The pin has a circle of radius 9 and color white.
@@ -37,13 +39,13 @@ public class Pin
             // Check if the game is at the placement phase
             if (this.c.getCenterY() > Integer.parseInt(Settings.getInstance().GetSize()[1])/2){
                 // Checks if the player has clicked on the appropriate half of the map and that pin has not been clicked before
-                if ((GameModel.getInstance().shipToPlace != null)&& !this.hasClicked) {
+                if ((model.shipToPlace != null)&& !this.hasClicked) {
                     // Places the ship that has been chosen by player on the board
 
-                    model.shipToPlace.getShip().setX(c.getCenterX() - 25);
-                    model.shipToPlace.getShip().setY(c.getCenterY() - 25);
-                    model.GetPlayer().getChildren().add(0,model.shipToPlace.getShip());
-                    model.shipToPlace.Align();
+                    model.shipToPlace.setLayoutX(c.getCenterX() - 25);
+                    model.shipToPlace.setLayoutY(c.getCenterY()-25);
+                    model.GetPlayer().getChildren().add(0,model.shipToPlace);
+                    Align();
 
                     // If the player has placed all their ships, moves to the next player
                     if (model.count == 4) {
@@ -56,7 +58,8 @@ public class Pin
                         model.count++;
                     }this.hasClicked =true;
                 }
-                GameModel.getInstance().shipToPlace = null;
+                model.shipToPlace = null;
+
 
             }
         }

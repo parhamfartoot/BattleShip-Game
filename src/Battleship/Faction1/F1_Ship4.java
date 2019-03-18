@@ -14,25 +14,11 @@ public class F1_Ship4 extends Ships {
     */
 
     public F1_Ship4() {
-        Crtitical.add(new Pin(50,50));
-        Crtitical.add(new Pin(50,100));
-        Crtitical.add(new Pin(50,150));
-
-        setH(100);setW(50);//Set the size of the ship
+        setH(100);
+        setW(50);//Set the size of the ship
 
         setArt("Art/SpaceShips/Faction1/Ship4.png");//Set the artwork of the ship
-        this.getShip().setOnMousePressed(ShipOnMousePressedEventHandler);// Add a MouseOnPress listener to the ship
     }
-
-    EventHandler<MouseEvent> ShipOnMousePressedEventHandler = new EventHandler<MouseEvent>()
-    {
-        //On mouse pressed the ship will be added to GameModel for placement
-        @Override
-        public void handle(MouseEvent mouseEvent)
-        {
-            GameModel.getInstance().shipToPlace = new F1_Ship4();
-        }
-    };
 
 
 }

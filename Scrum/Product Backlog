@@ -54,12 +54,6 @@ Name: Overlapping ships
 Issue: Currently the player can place the ships in such a way that they would overlap.
 This must be a forbidden state. 
 -------------------------------------------------------------------------------
--------------------------------------------------------------------------------
-Type: Bug 2.2
-Name: Duplicate Ships 
-Issue: Currently the player can place a ship on the board more than once. This is a 
-Forbidden state and only one instance per each type of ship should be allowed
--------------------------------------------------------------------------------
 
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
@@ -107,4 +101,10 @@ Issue: After a shot has been made, the transition screen should inform the playe
 Type: Bug 3
 Name: Pins clicked
 Issue: Currently the player can click on a certain pin to shoot during game more than once. Once a pin has been chose for a shot they should no longer count as a new shot.
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Type: Bug 2.2
+Name: Duplicate Ships 
+Issue: Currently the player can place a ship on the board more than once. This is a 
+Forbidden state and only one instance per each type of ship should be allowed
 -------------------------------------------------------------------------------

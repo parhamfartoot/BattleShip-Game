@@ -1,29 +1,40 @@
 package Battleship;
 
+import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.geometry.Point2D;
-import java.util.ArrayList;
 
 public class Ships {
     /* A Ship has a Width, Height and an Artwork
     each ship has a unique artwork that will be set at instantiation.
     After placement a ship need to be Aligned with the board so that the according pins will be notified of the change.
      */
-
-    protected ArrayList<Pin> Crtitical = new ArrayList<Pin>();
     private int Width;
     private int Height;
     private ImageView img;
 
     protected Ships(){
     }
+    public void setAction(){
+        this.img.setOnMouseClicked(
+                new EventHandler<MouseEvent>(){
+                    public void handle(MouseEvent e){
+                        Clicked();
+                    }
+                });
+    }
+    private void Clicked() {
 
+        GameModel.getInstance().shipToPlace = this.getShip();
+    }
     protected void setW(int W){ this.Width = W; } //Set the Width of ship
     protected void setH(int H){this.Height = H; } //Set the Height of ship
+
     protected void setArt(String s){
         //Sets the Artwork of the ship
         this.img =new ImageView(new Image(s));
@@ -33,13 +44,13 @@ public class Ships {
     protected ImageView getShip(){ return img; } //Return the ships artwork
 
 
-    void Align(){
+    static void Align(){
         //Aligns the ship with the board, informing the pins that are contained by the ship
 
         Board board = GameModel.getInstance().GetPlayer();
         for (Node n: board.getChildren()){
             if (n instanceof Circle){
-                if (isContained((Circle) n, GameModel.getInstance().shipToPlace.getShip())){
+                if (isContained((Circle) n, GameModel.getInstance().shipToPlace)){
                     ((Circle) n).setFill(Color.GREEN);
                 }
             }
@@ -65,12 +76,10 @@ public class Ships {
         //Finds the corners of the ship's artwork
 
         Point2D[] corners = new Point2D[4];
-        corners[0] = new Point2D(image.getX(),image.getY());
-        corners[1] = new Point2D(image.getX()+ image.getFitWidth(), image.getY());
-        corners[2] = new Point2D(image.getX()+ image.getFitWidth(),image.getY()+ image.getFitHeight());
-        corners[3] = new Point2D(image.getX(),image.getY()+ image.getFitHeight());
+        corners[0] = new Point2D(image.getLayoutX(),image.getLayoutY());
+        corners[1] = new Point2D(image.getLayoutX()+ image.getFitWidth(), image.getLayoutY());
+        corners[2] = new Point2D(image.getLayoutX()+ image.getFitWidth(),image.getLayoutY()+ image.getFitHeight());
+        corners[3] = new Point2D(image.getLayoutX(),image.getLayoutY()+ image.getFitHeight());
         return corners;
     }
-
-
 }

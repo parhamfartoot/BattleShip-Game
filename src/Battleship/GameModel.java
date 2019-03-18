@@ -1,6 +1,6 @@
 package Battleship;
 
-import javafx.scene.shape.Circle;
+import javafx.scene.image.ImageView;
 import java.util.Observable;
 
 public class GameModel extends Observable{
@@ -18,8 +18,7 @@ public class GameModel extends Observable{
     private Boolean mutliplayer = true;
     private int boardsize = 0;
     private int selection = 0;
-    protected Circle shot = null;
-    public Ships shipToPlace; // The ship that needs to be placed on board
+     ImageView shipToPlace; // The ship that needs to be placed on board
     int count =1;
     private int init=0;
     private int[] score = new int[2];
@@ -27,7 +26,7 @@ public class GameModel extends Observable{
 
     //declares the GameModel as singleton
     private static GameModel single_instance = null;
-    public static GameModel getInstance()
+    static GameModel getInstance()
     {
         if (single_instance == null)
             single_instance = new GameModel();
