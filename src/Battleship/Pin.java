@@ -87,8 +87,11 @@ public class Pin
                         this.c.setFill(Color.RED);
                         //Adds to the players score
                         GameModel.getInstance().AddScore();
+                        //Set the text accordingly
+                        GameModel.getInstance().setShot("Your shot was a hit");
                         }
-                    else this.c.setFill(Color.YELLOW); //Change color to yellow if the shot was a miss
+                    else {this.c.setFill(Color.YELLOW);GameModel.getInstance().setShot("Your shot was a miss");} //Change color to yellow if the shot was a miss
+
                                 }
                             }
                         }

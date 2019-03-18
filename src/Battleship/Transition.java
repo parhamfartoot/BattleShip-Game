@@ -19,14 +19,21 @@ class Transition extends StackPane {
         Canvas canvas = new Canvas(Integer.parseInt(Settings.getInstance().GetSize()[0]), Integer.parseInt(Settings.getInstance().GetSize()[1]));
         this.setStyle(Settings.getInstance().backGround);
 
+        //Shows the state of the players shot
+        Text shotState = new Text(GameModel.getInstance().HitState());
+        //Setting the font of the text
+        shotState.setFont(Font.font(null, FontWeight.BOLD, 25));
+        //Setting the color of the text
+        shotState.setFill(Color.WHITE);
+        //setting the position of the text
+        shotState.setTranslateY(-150);
+
         //Score board that shows the player score
         Text score = new Text("Your score is : "+Integer.toString(GameModel.getInstance().GetScore()));
         //Setting the font of the text
         score.setFont(Font.font(null, FontWeight.BOLD, 25));
-
         //Setting the color of the text
         score.setFill(Color.WHITE);
-
         //setting the position of the text
         score.setTranslateY(-200);
 
@@ -47,6 +54,8 @@ class Transition extends StackPane {
         this.getChildren().add(canvas);
         this.getChildren().add(button);
         this.getChildren().add(0,score);
+        //Show the state of the shot if a shot has been made
+        if (!GameModel.getInstance().IsInitPhase()) this.getChildren().add(shotState);
     }
     private void Clicked(MouseEvent e) {
         GameModel.getInstance().ChangeState();

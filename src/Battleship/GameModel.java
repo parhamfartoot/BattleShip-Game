@@ -23,6 +23,7 @@ public class GameModel extends Observable{
     int count =1;
     private int init=0;
     private int[] score = new int[2];
+    private String hitState;
 
     //declares the GameModel as singleton
     private static GameModel single_instance = null;
@@ -73,7 +74,7 @@ public class GameModel extends Observable{
             this.InitPhase = false;
     }
 
-    boolean IsInitPhase(){return this.InitPhase;} //returns whether the place
+    boolean IsInitPhase(){return this.InitPhase;} //returns if the player is still in the placement phase
     int Turn(){return this.player;}
 
     int getSelection(){
@@ -103,5 +104,14 @@ public class GameModel extends Observable{
     void AddScore(){
         //Adds to the score of the player
         score[Player()-1] += 50;
+    }
+
+    void setShot(String state){
+        //Set the string for players shot
+        hitState = state;
+    }
+    String HitState(){
+        //Returns the string representative of your last shot
+        return hitState;
     }
 }
