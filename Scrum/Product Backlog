@@ -31,6 +31,12 @@ Issue: Add a tutorial, player would be able to chose wether they want to go thro
 Tutorial or not by clicking on the tutorial button available in the start screen.
 -------------------------------------------------------------------------------
 
+-------------------------------------------------------------------------------
+Type: Bug 2.3
+Name: Placing ships outside of the board
+Issue: The player shouldn't be able to place a ship on the board in such way that its not bounded by the board
+-------------------------------------------------------------------------------
+
 
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
@@ -84,6 +90,7 @@ Name: Selecting map size
 Issue: The player must be able to choose the map size they prefer and the screen size 
 Should change according to this.
 -------------------------------------------------------------------------------
+
 
 
 
