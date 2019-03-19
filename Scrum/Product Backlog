@@ -1,10 +1,5 @@
 
 -------------------------------------------------------------------------------
-Type: UserStory 1.2
-Name: highest_score_wins
-Issue: When a player reaches the max score ( having destroyed all enemy ships) the game should end and they should be announced as the winner
--------------------------------------------------------------------------------
--------------------------------------------------------------------------------
 Type: UserStory 3
 Name: Start screen
 Issue: We need to add a start in Screen, replacing the Transition Screen At the
@@ -39,7 +34,11 @@ Tutorial or not by clicking on the tutorial button available in the start screen
 
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
-
+-------------------------------------------------------------------------------
+Type: UserStory 1.2
+Name: highest_score_wins
+Issue: When a player reaches the max score ( having destroyed all enemy ships) the game should end and they should be announced as the winner
+-------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
 Type: UserStory 2.1
 Name: Add Ship models
