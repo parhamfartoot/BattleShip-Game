@@ -30,11 +30,10 @@ Name: Tutorial
 Issue: Add a tutorial, player would be able to chose wether they want to go through the
 Tutorial or not by clicking on the tutorial button available in the start screen.
 -------------------------------------------------------------------------------
-
 -------------------------------------------------------------------------------
-Type: Bug 2.3
-Name: Placing ships outside of the board
-Issue: The player shouldn't be able to place a ship on the board in such way that its not bounded by the board
+Type: UserStory 2.4
+Name: Rotating ship
+Issue: The player should be able to rotate their ships by pressing "Q" or "R"
 -------------------------------------------------------------------------------
 
 
@@ -115,4 +114,9 @@ This must be a forbidden state.
 Type: Bug 1
 Name: screen Size
 Issue: The size of the screen is not adjusted. It is possible that we have pins on the Y-axis or on the X-axis that won't be properly displayed on the screen at the start.
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Type: Bug 2.3
+Name: Placing ships outside of the board
+Issue: The player shouldn't be able to place a ship on the board in such way that its not bounded by the board
 -------------------------------------------------------------------------------

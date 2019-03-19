@@ -1,5 +1,6 @@
 package Battleship;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
@@ -32,7 +33,7 @@ public class Ships {
     }
     private void Clicked() {
         // get the ships image on click to be placed
-        if (GameModel.getInstance().shipToPlace == null)
+        if (GameModel.getInstance().shipToPlace == null && ! GameModel.getInstance().GetPlayer().getChildren().contains(this.getShip()))
             GameModel.getInstance().shipToPlace = this.getShip();
 
     }
@@ -59,7 +60,7 @@ public class Ships {
         GameModel.getInstance().GetPlayer().getChildren().add(GameModel.getInstance().shipToPlace);
         GameModel.getInstance().count++;
 
-        if (Collides()) {
+        if (Collides() || Bounded(GameModel.getInstance().shipToPlace)){
             //if the ship collides, remove the ship
             GameModel.getInstance().GetPlayer().getChildren().remove(GameModel.getInstance().shipToPlace);
             GameModel.getInstance().count--;
@@ -69,7 +70,18 @@ public class Ships {
         }
 
     }
-
+    private static Boolean Bounded(ImageView image){
+        //Check if the ship is bounded by the board
+        Board board = GameModel.getInstance().GetPlayer();
+        Point2D[] corners = getImageCorners(image);
+        //Compare the edges of the ship with the edges of the board
+        for (Point2D point : corners){
+            if (point.getX()-10 < board.getLayoutX()-GameModel.getInstance().chooser.getWidth() || point.getX()-10 > board.getLayoutX()+board.getW()-GameModel.getInstance().chooser.getWidth()
+                    || point.getY()-15 < board.getLayoutY() || point.getY()-15 > board.getLayoutY()+board.getHeight()){
+                return true;}
+        }
+        return false;
+    }
     private static Boolean Collides(){
         //Checks if any of the ships collide
         Board board = GameModel.getInstance().GetPlayer();
