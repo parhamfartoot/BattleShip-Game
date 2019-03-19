@@ -1,6 +1,7 @@
 package Battleship;
 
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import java.util.Observable;
@@ -28,6 +29,7 @@ public class View implements Observer {
         //Instantiate the view with Start Menu
         root.setCenter(gamemenu);
         Scene scene = new Scene(root);
+        Rotate(scene);
         stage.setScene(scene);
         stage.setTitle("Welcome to BattleShips!");
 
@@ -67,4 +69,19 @@ public class View implements Observer {
 
         }
         stage.sizeToScene();}
+
+    private void Rotate(Scene scene) {
+        //set the keyHandler to implement rotation
+        scene.setOnKeyPressed((event) -> {
+            if (GameModel.getInstance().shipToPlace != null){
+            if (event.getCode() == KeyCode.E) {
+                //If E is pressed rotate clockwise
+                GameModel.getInstance().shipToPlace.setRotate(GameModel.getInstance().shipToPlace.getRotate()+90);
+            }
+            else if (event.getCode() == KeyCode.Q) {
+                //If Q is pressed rotate Counter-Clockwise
+                GameModel.getInstance().shipToPlace.setRotate(GameModel.getInstance().shipToPlace.getRotate()-90);
+            }}
+        });
+    }
 }

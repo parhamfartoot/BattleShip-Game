@@ -1,14 +1,13 @@
 package Battleship;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.event.EventHandler;
+import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.geometry.Point2D;
 
 public class Ships {
     /* A Ship has a Width, Height and an Artwork
@@ -22,7 +21,7 @@ public class Ships {
     protected Ships(){
     }
 
-    public void setAction(){
+    void setAction(){
         //Add a listener to the ship's image
             this.img.setOnMouseClicked(
                 new EventHandler<MouseEvent>(){
@@ -43,24 +42,39 @@ public class Ships {
     protected void setArt(String s){
         //Sets the Artwork of the ship
         this.img =new ImageView(new Image(s));
-        img.setFitWidth(Width);
-        img.setFitHeight(Height);
+        this.img.setFitWidth(Width);
+        this.img.setFitHeight(Height);
     }
-    protected ImageView getShip(){ return img; } //Return the ships artwork
+    protected ImageView getShip(){ return this.img; } //Return the ships artwork
 
 
     static void Align(Pin pin) {
         //Aligns the ship with the board, informing the pins that are contained by the ship
-        ImageView ship = GameModel.getInstance().shipToPlace;
         GameModel.getInstance().GetPlayer().getChildren().remove(GameModel.getInstance().shipToPlace);
-
         //set the location of the ship's image
-        ship.setLayoutX(pin.c.getCenterX() - 25);
-        ship.setLayoutY(pin.c.getCenterY() - 25);
+
+        //Check for rotation
+        if (GameModel.getInstance().shipToPlace.getRotate()%180 ==0){
+            GameModel.getInstance().shipToPlace.setLayoutX(pin.c.getCenterX()-25);
+            GameModel.getInstance().shipToPlace.setLayoutY(pin.c.getCenterY() -25);
+        }else {
+            if (GameModel.getInstance().shipToPlace.getFitWidth() ==50)
+            {
+                GameModel.getInstance().shipToPlace.setLayoutX(pin.c.getCenterX()+GameModel.getInstance().shipToPlace.getFitHeight()/2
+                        -GameModel.getInstance().shipToPlace.getFitWidth());
+                GameModel.getInstance().shipToPlace.setLayoutY(pin.c.getCenterY()+GameModel.getInstance().shipToPlace.getFitWidth()/2
+                        -GameModel.getInstance().shipToPlace.getFitHeight()/2 -25);
+            }else {
+            GameModel.getInstance().shipToPlace.setLayoutX(pin.c.getCenterX()+GameModel.getInstance().shipToPlace.getFitHeight()/2
+                    -GameModel.getInstance().shipToPlace.getFitWidth()+25);
+            GameModel.getInstance().shipToPlace.setLayoutY(pin.c.getCenterY()+GameModel.getInstance().shipToPlace.getFitWidth()/2
+                    -GameModel.getInstance().shipToPlace.getFitHeight()/2 -25);}
+
+        }
         GameModel.getInstance().GetPlayer().getChildren().add(GameModel.getInstance().shipToPlace);
         GameModel.getInstance().count++;
 
-        if (Collides() || Bounded(GameModel.getInstance().shipToPlace)){
+        if (Collides() || !Bounded(GameModel.getInstance().shipToPlace)){
             //if the ship collides, remove the ship
             GameModel.getInstance().GetPlayer().getChildren().remove(GameModel.getInstance().shipToPlace);
             GameModel.getInstance().count--;
@@ -72,63 +86,37 @@ public class Ships {
     }
     private static Boolean Bounded(ImageView image){
         //Check if the ship is bounded by the board
-        Board board = GameModel.getInstance().GetPlayer();
-        Point2D[] corners = getImageCorners(image);
+        Bounds r1Bounds = GameModel.getInstance().shipToPlace.getBoundsInParent();
+        Bounds r2Bounds = GameModel.getInstance().GetPlayer().getBoundsInParent();
         //Compare the edges of the ship with the edges of the board
-        for (Point2D point : corners){
-            if (point.getX()-10 < board.getLayoutX()-GameModel.getInstance().chooser.getWidth() || point.getX()-10 > board.getLayoutX()+board.getW()-GameModel.getInstance().chooser.getWidth()
-                    || point.getY()-15 < board.getLayoutY() || point.getY()-15 > board.getLayoutY()+board.getHeight()){
-                return true;}
-        }
+        if(r2Bounds.intersects(r1Bounds)){return true;}
         return false;
     }
     private static Boolean Collides(){
         //Checks if any of the ships collide
+        Bounds r1Bounds = GameModel.getInstance().shipToPlace.getBoundsInParent();
         Board board = GameModel.getInstance().GetPlayer();
         for (Node n: board.getChildren()){
             if (n instanceof Circle){
-                if (isContained((Circle) n, GameModel.getInstance().shipToPlace) && ((Circle) n).getFill() == Color.GREEN){
+                Bounds r2Bounds = n.getBoundsInParent();
+                //if any of the pins bounded by ship are green that would mean, collision
+                if (r2Bounds.intersects(r1Bounds) && ((Circle) n).getFill() == Color.GREEN){
                     return true;
                 }
             }
         } return false;
     }
     private static void ColorPin(){
-        //Changes the color of the according pins
+        //Changes the color of the Pins that are bounded by the image
         Board board = GameModel.getInstance().GetPlayer();
+        Bounds r1Bounds = GameModel.getInstance().shipToPlace.getBoundsInParent();
         for (Node n: board.getChildren()){
             if (n instanceof Circle){
-                if (isContained((Circle) n, GameModel.getInstance().shipToPlace)){
+                Bounds c1Bounds = n.getBoundsInParent();
+                if (c1Bounds.intersects(r1Bounds)){
                     ((Circle) n).setFill(Color.GREEN);
                 }
             }
         } GameModel.getInstance().shipToPlace = null;
-    }
-
-
-    private static boolean isContained(Circle circle,ImageView image) {
-        //Checks to see if circle of component of a Pin object is inside the ships boundaries
-
-        //Get circle center
-        Point2D center = new Point2D(circle.getCenterX(), circle.getCenterY());
-
-        //Get the corners of the ship
-        Point2D[] corners = getImageCorners(image);
-
-        //Checks if a circle is bounded by the ship or not
-        if (center.getX() < corners[0].getX() || center.getX() > corners[1].getX()){ return false;}//Circle outside the ship on X-axis
-        if (center.getY() < corners[1].getY() || center.getY() > corners[2].getY()){ return false;}//Circle outside of the ship on Y axis
-        else return true;
-    }
-
-    private static Point2D[] getImageCorners(ImageView image) {
-        //Finds the corners of the ship's artwork
-
-        Point2D[] corners = new Point2D[4];
-        corners[0] = new Point2D(image.getLayoutX(),image.getLayoutY());
-        corners[1] = new Point2D(image.getLayoutX()+ image.getFitWidth(), image.getLayoutY());
-        corners[2] = new Point2D(image.getLayoutX()+ image.getFitWidth(),image.getLayoutY()+ image.getFitHeight());
-        corners[3] = new Point2D(image.getLayoutX(),image.getLayoutY()+ image.getFitHeight());
-        return corners;
     }
 }

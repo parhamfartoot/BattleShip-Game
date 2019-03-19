@@ -72,7 +72,7 @@ public class Pin
         //Checks if the shot fires was a hit and acts accordingly
 
         double hitX = c.getCenterX(); //appropriate X-axis value of shot fired on enemy board
-        double hitY = c.getCenterY() +Settings.getInstance().GetSize()[1]/2; //appropriate Y-axis value of shot fired on enemy board
+        double hitY = c.getCenterY() + Settings.getInstance().GetSize()[1]/2; //appropriate Y-axis value of shot fired on enemy board
         Board board = GameModel.getInstance().GetEnemy(); //Enemies board
         
         for (Node n: board.getChildren()){

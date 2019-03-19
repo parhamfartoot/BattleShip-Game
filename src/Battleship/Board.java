@@ -12,13 +12,12 @@ class Board extends Pane {
 
     Canvas canvas;
 
-    public Board() {
+     Board() {
 
         // Set the background image
         this.setStyle(Settings.getInstance().backGround);
         //Calls BoardBuilder to populate the board
         new BoardBuilder(this);
-
         //Add a listener to the board
         this.setOnMouseEntered(new EventHandler<MouseEvent>(){public void handle(MouseEvent e){
             //Draw the image on the board, as the cursor is moved around
@@ -34,13 +33,13 @@ class Board extends Pane {
             GameModel.getInstance().stage.sizeToScene();}
             });
     }
-
     private void Move(MouseEvent e){
         //Draws the ships at the location of the cursor
+
         if (GameModel.getInstance().shipToPlace != null){
             GameModel.getInstance().GetPlayer().getChildren().remove(GameModel.getInstance().shipToPlace);
-            GameModel.getInstance().shipToPlace.setLayoutX(e.getX()-10);
-            GameModel.getInstance().shipToPlace.setLayoutY(e.getY()-15);
+            GameModel.getInstance().shipToPlace.setLayoutX(e.getX()+15);
+            GameModel.getInstance().shipToPlace.setLayoutY(e.getY()+15);
             Board.this.getChildren().add(GameModel.getInstance().shipToPlace);
         }
     }
