@@ -27,7 +27,6 @@ public class View implements Observer {
     private void initUI(Stage stage) {
         //Instantiate the view with Start Menu
         root.setCenter(gamemenu);
-        //stage.resizableProperty().bind(root);
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Welcome to BattleShips!");
@@ -48,14 +47,14 @@ public class View implements Observer {
         if (model.getSelection() > 1) {
             // If the game is in transition phase Displays the Transition, otherwise the according board
             if (model.State()) {
-                //model.GetPlayer().prefWidthProperty().bind(root.widthProperty());
                 this.root.setCenter(model.GetPlayer());
-                //root.resize(Settings.getInstance().GetSize()[0]+100,Settings.getInstance().GetSize()[1]);
                     if (model.IsInitPhase()){
                         GameModel.getInstance().chooser = new ShipChooser();
                         root.setLeft(GameModel.getInstance().chooser);}
             } else {
-                root.setCenter(new Transition());
+                //Check if a player has won the game
+                if (GameModel.getInstance().GetScore() == 700) {root.setCenter(new WinScreen());}
+                    else root.setCenter(new Transition());
             }
             // Sets the title to the current player
             stage.setTitle("Player " + model.Turn());

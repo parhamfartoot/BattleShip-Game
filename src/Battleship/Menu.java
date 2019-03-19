@@ -86,7 +86,6 @@ public class Menu extends FlowPane {
     }
     public Button createMenuButton(String msg){
     	Button button = new Button(msg);
-    	//button.setPrefWidth(Settings.getInstance().GetSize()[0]+100);
 		button.setPrefWidth(1000+100);
 		button.setPrefHeight(100);
     	return button;
@@ -100,22 +99,22 @@ public class Menu extends FlowPane {
         GameModel.getInstance().NextSelection();
     }
     private void SmallClicked(MouseEvent e) {
+		//Set the size of board to small
     	Settings.getInstance().SetSize(350,500);
-    	//GameModel.getInstance().stage.setMaxWidth(350);
 		GameModel.getInstance().stage.setMaxHeight(525);
 		GameModel.getInstance().MakeBoard();
         GameModel.getInstance().NextSelection();
     }
     private void MediumClicked(MouseEvent e) {
+		//Set the size of board to medium
     	Settings.getInstance().SetSize(500,700);
-		//GameModel.getInstance().stage.setMaxWidth(500);
 		GameModel.getInstance().stage.setMaxHeight(725);
 		GameModel.getInstance().MakeBoard();
         GameModel.getInstance().NextSelection();
     }
     private void LargeClicked(MouseEvent e) {
+		//Set the size of board to large
 		Settings.getInstance().SetSize(650,900);
-		//GameModel.getInstance().stage.setMaxWidth(650);
 		GameModel.getInstance().stage.setMaxHeight(925);
 		GameModel.getInstance().MakeBoard();
         GameModel.getInstance().NextSelection();

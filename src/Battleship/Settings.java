@@ -2,24 +2,20 @@ package Battleship;
 
 public class Settings {
     /* Settings is a Singleton class.
-     * Settings has a width, height and a string holding information about the size of the board that has been chosen.
+     * Settings has a array of ints holding information about the size of the board that has been chosen.
      * Settings also has a background, which will be the background of the game.
      */
 
     private static Settings single_instance = null;
-
-    //private int width = 700; // Width of the board
-    //private int height = 800; // height of the board
     private Integer ar[] = new Integer[2];
 
     //Background of the board
-    protected String backGround = "-fx-background-image: url('" + "/Art/BackGround/nebula_1.gif" + "'); " +
+    String backGround = "-fx-background-image: url('" + "/Art/BackGround/nebula_1.gif" + "'); " +
             "-fx-background-position: center center; " +
             "-fx-background-repeat: stretch;"+"-fx-background-size: cover;";
 
-    public Settings(){
-        //ar[0]= width;
-        //ar[1] =height;
+    private Settings(){
+
     }
 
     public static Settings getInstance()
@@ -31,10 +27,11 @@ public class Settings {
     }
 
     Integer[] GetSize(){
-
+        //returns the array containing the size of the board
         return ar;
     }
     void SetSize(int x, int y){
+        //Set the size of the board
         ar[0] = x;
         ar[1] = y;
     }

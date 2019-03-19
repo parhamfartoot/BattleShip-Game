@@ -70,7 +70,7 @@ public class Ships {
 
     }
 
-    static Boolean Collides(){
+    private static Boolean Collides(){
         //Checks if any of the ships collide
         Board board = GameModel.getInstance().GetPlayer();
         for (Node n: board.getChildren()){
@@ -81,7 +81,7 @@ public class Ships {
             }
         } return false;
     }
-    static void ColorPin(){
+    private static void ColorPin(){
         //Changes the color of the according pins
         Board board = GameModel.getInstance().GetPlayer();
         for (Node n: board.getChildren()){

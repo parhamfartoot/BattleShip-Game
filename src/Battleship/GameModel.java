@@ -25,8 +25,8 @@ public class GameModel extends Observable{
     private int init=0;
     private int[] score = new int[2];
     private String hitState;
-    public Stage stage;
-    public ShipChooser chooser;
+    Stage stage;
+    ShipChooser chooser;
 
     //declares the GameModel as singleton
     private static GameModel single_instance = null;
@@ -45,7 +45,7 @@ public class GameModel extends Observable{
         setChanged();notifyObservers();
     }
     void MakeBoard(){
-
+        //Creates the boards for players
         this.player1 = new Board(); // Player1's board
         this.player2 = new Board(); // Player2's board
     }
@@ -88,6 +88,7 @@ public class GameModel extends Observable{
     }
 
     int Player(){return this.player;}
+    int Enemy(){if(this.player ==1) return 2;else return 1;}
 
 
     Board GetPlayer(){
@@ -106,6 +107,11 @@ public class GameModel extends Observable{
         //Returns the score of the player
         if (player ==1) return score[1];
         else return score[0];
+    }
+    int GetEnemyScore(){
+        //Returns the score of the player
+        if (player ==1) return score[0];
+        else return score[1];
     }
     void AddScore(){
         //Adds to the score of the player

@@ -21,21 +21,22 @@ class Board extends Pane {
 
         //Add a listener to the board
         this.setOnMouseEntered(new EventHandler<MouseEvent>(){public void handle(MouseEvent e){
-            //Draw the image on the board, as the coarser is moved around
+            //Draw the image on the board, as the cursor is moved around
             Move(e);
                 Board.this.setOnMouseMoved(
                     new EventHandler<MouseEvent>(){
                     public void handle(MouseEvent e){
-
                         Move(e);
                         }
                     });
+                //Changes the size of stage accordingly
             GameModel.getInstance().stage.setMaxWidth(Settings.getInstance().GetSize()[0]+GameModel.getInstance().chooser.getWidth());
             GameModel.getInstance().stage.sizeToScene();}
             });
     }
 
     private void Move(MouseEvent e){
+        //Draws the ships at the location of the cursor
         if (GameModel.getInstance().shipToPlace != null){
             GameModel.getInstance().GetPlayer().getChildren().remove(GameModel.getInstance().shipToPlace);
             GameModel.getInstance().shipToPlace.setLayoutX(e.getX()-10);
