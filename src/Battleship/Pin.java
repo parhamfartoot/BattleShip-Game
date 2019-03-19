@@ -37,7 +37,7 @@ public class Pin
 
         if (model.IsInitPhase()){
             // Check if the game is at the placement phase
-            if (this.c.getCenterY() > Integer.parseInt(Settings.getInstance().GetSize()[1])/2){
+            if (this.c.getCenterY() > Settings.getInstance().GetSize()[1]/2){
                 // Checks if the player has clicked on the appropriate half of the map and that pin has not been clicked before
                 if ((model.shipToPlace != null)&& !this.hasClicked) {
                     // Places the ship that has been chosen by player on the board
@@ -58,7 +58,7 @@ public class Pin
         }
         else { //The game is not in the placement phase
             //Checks if the enemy half of the board has been clicked
-                if((this.c.getCenterY() < Integer.parseInt(Settings.getInstance().GetSize()[1])/2)&& !this.hasClicked){
+                if((this.c.getCenterY() < Settings.getInstance().GetSize()[1]/2)&& !this.hasClicked){
                     // Checks if the fire was a hit and Changes the player
                     IsHit(this.c);
                     model.ChangeState();
@@ -72,7 +72,7 @@ public class Pin
         //Checks if the shot fires was a hit and acts accordingly
 
         double hitX = c.getCenterX(); //appropriate X-axis value of shot fired on enemy board
-        double hitY = c.getCenterY() +500; //appropriate Y-axis value of shot fired on enemy board
+        double hitY = c.getCenterY() +Settings.getInstance().GetSize()[1]/2; //appropriate Y-axis value of shot fired on enemy board
         Board board = GameModel.getInstance().GetEnemy(); //Enemies board
         
         for (Node n: board.getChildren()){

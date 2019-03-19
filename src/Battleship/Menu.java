@@ -6,6 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 
+import java.util.Set;
+
 //author Sin Hwan Lee, 1001666084, leesin2
 
 public class Menu extends FlowPane {
@@ -17,7 +19,8 @@ public class Menu extends FlowPane {
     public Menu(int selection){
     	// Pane Settings
 
-    	this.setMinSize(Integer.parseInt(Settings.getInstance().GetSize()[0]), Integer.parseInt(Settings.getInstance().GetSize()[1]));
+    	//this.setMinSize(Settings.getInstance().GetSize()[0], Settings.getInstance().GetSize()[1]);
+		this.setMinSize(1000, 1000);
     	this.setPadding(new Insets(5, 0, 5, 0));
 
     	this.setVgap(4);
@@ -83,7 +86,8 @@ public class Menu extends FlowPane {
     }
     public Button createMenuButton(String msg){
     	Button button = new Button(msg);
-    	button.setPrefWidth(500);
+    	//button.setPrefWidth(Settings.getInstance().GetSize()[0]+100);
+		button.setPrefWidth(1000+100);
 		button.setPrefHeight(100);
     	return button;
     }
@@ -96,12 +100,24 @@ public class Menu extends FlowPane {
         GameModel.getInstance().NextSelection();
     }
     private void SmallClicked(MouseEvent e) {
+    	Settings.getInstance().SetSize(350,500);
+    	//GameModel.getInstance().stage.setMaxWidth(350);
+		GameModel.getInstance().stage.setMaxHeight(525);
+		GameModel.getInstance().MakeBoard();
         GameModel.getInstance().NextSelection();
     }
     private void MediumClicked(MouseEvent e) {
+    	Settings.getInstance().SetSize(500,700);
+		//GameModel.getInstance().stage.setMaxWidth(500);
+		GameModel.getInstance().stage.setMaxHeight(725);
+		GameModel.getInstance().MakeBoard();
         GameModel.getInstance().NextSelection();
     }
     private void LargeClicked(MouseEvent e) {
+		Settings.getInstance().SetSize(650,900);
+		//GameModel.getInstance().stage.setMaxWidth(650);
+		GameModel.getInstance().stage.setMaxHeight(925);
+		GameModel.getInstance().MakeBoard();
         GameModel.getInstance().NextSelection();
     }
 }

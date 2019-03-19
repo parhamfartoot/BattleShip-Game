@@ -18,6 +18,7 @@ public class View implements Observer {
 
     protected View(Stage stage) {
         this.model = GameModel.getInstance();
+        model.stage =stage;
         this.stage = stage;
         setObservable();
         initUI(stage);
@@ -26,10 +27,11 @@ public class View implements Observer {
     private void initUI(Stage stage) {
         //Instantiate the view with Start Menu
         root.setCenter(gamemenu);
-
+        //stage.resizableProperty().bind(root);
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Welcome to BattleShips!");
+
         stage.show();
     }
 
@@ -46,9 +48,12 @@ public class View implements Observer {
         if (model.getSelection() > 1) {
             // If the game is in transition phase Displays the Transition, otherwise the according board
             if (model.State()) {
+                //model.GetPlayer().prefWidthProperty().bind(root.widthProperty());
                 this.root.setCenter(model.GetPlayer());
-                    if (model.IsInitPhase())
-                    root.setLeft(new ShipChooser());
+                //root.resize(Settings.getInstance().GetSize()[0]+100,Settings.getInstance().GetSize()[1]);
+                    if (model.IsInitPhase()){
+                        GameModel.getInstance().chooser = new ShipChooser();
+                        root.setLeft(GameModel.getInstance().chooser);}
             } else {
                 root.setCenter(new Transition());
             }
@@ -62,5 +67,5 @@ public class View implements Observer {
 
 
         }
-    }
+        stage.sizeToScene();}
 }

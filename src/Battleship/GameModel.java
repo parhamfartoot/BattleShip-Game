@@ -1,6 +1,8 @@
 package Battleship;
 
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+
 import java.util.Observable;
 
 public class GameModel extends Observable{
@@ -12,8 +14,8 @@ public class GameModel extends Observable{
 
     private boolean InitPhase = true; //The placement phase
     private int player =1; //the player whom turn it is
-    private Board player1 = new Board(); // Player1's board
-    private Board player2 = new Board(); // Player2's board
+    private Board player1; // Player1's board
+    private Board player2; // Player2's board
     private Boolean state = false;
     private Boolean mutliplayer = true;
     private int boardsize = 0;
@@ -23,6 +25,8 @@ public class GameModel extends Observable{
     private int init=0;
     private int[] score = new int[2];
     private String hitState;
+    public Stage stage;
+    public ShipChooser chooser;
 
     //declares the GameModel as singleton
     private static GameModel single_instance = null;
@@ -40,6 +44,11 @@ public class GameModel extends Observable{
         else this.player =1;
         setChanged();notifyObservers();
     }
+    void MakeBoard(){
+
+        this.player1 = new Board(); // Player1's board
+        this.player2 = new Board(); // Player2's board
+    }
 
     void ChangeState(){
         //Changes the state of the game and notifies the observer
@@ -53,9 +62,7 @@ public class GameModel extends Observable{
     	setChanged(); notifyObservers();
     }
     
-    public void setSelection(int sel){
-    	this.selection = sel;
-    }
+    //public void setSelection(int sel){this.selection = sel;}
 
     void setMultiplayer(Boolean multi){
     	this.mutliplayer = multi;
@@ -113,4 +120,5 @@ public class GameModel extends Observable{
         //Returns the string representative of your last shot
         return hitState;
     }
+    void Update(){setChanged();notifyObservers();}
 }

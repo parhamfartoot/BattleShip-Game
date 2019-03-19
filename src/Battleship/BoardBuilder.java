@@ -1,5 +1,6 @@
 package Battleship;
 
+import javafx.scene.canvas.Canvas;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
@@ -14,6 +15,10 @@ public class BoardBuilder {
 
     public BoardBuilder(Board board) {
         this.board = board;
+        //Create the canvas and add it to the children
+        board.canvas = new Canvas(Settings.getInstance().GetSize()[0], Settings.getInstance().GetSize()[1]);
+        board.getChildren().add(board.canvas);
+
         this.height = this.board.getH();
         this.width = this.board.getW();
         this.Separate();
@@ -25,7 +30,7 @@ public class BoardBuilder {
         Line line = new Line();
         line.setStartX(0);
         line.setStartY(height/2);
-        line.setEndX(500);
+        line.setEndX(width);
         line.setEndY(height/2);
         line.setStroke(Color.WHITE);
         this.board.getChildren().add(line);

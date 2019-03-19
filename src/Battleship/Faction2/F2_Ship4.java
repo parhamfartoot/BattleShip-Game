@@ -1,10 +1,6 @@
 package Battleship.Faction2;
 
-import Battleship.GameModel;
-import Battleship.Pin;
 import Battleship.Ships;
-import javafx.event.EventHandler;
-import javafx.scene.input.MouseEvent;
 
 public class F2_Ship4 extends Ships {
     /*

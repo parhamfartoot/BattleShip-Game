@@ -8,9 +8,9 @@ public class Settings {
 
     private static Settings single_instance = null;
 
-    private int width = 500; // Width of the board
-    private int height = 1000; // height of the board
-    private String ar[] = new String[2];
+    //private int width = 700; // Width of the board
+    //private int height = 800; // height of the board
+    private Integer ar[] = new Integer[2];
 
     //Background of the board
     protected String backGround = "-fx-background-image: url('" + "/Art/BackGround/nebula_1.gif" + "'); " +
@@ -18,8 +18,8 @@ public class Settings {
             "-fx-background-repeat: stretch;"+"-fx-background-size: cover;";
 
     public Settings(){
-        ar[0]= Integer.toString(width);
-        ar[1] =Integer.toString(height);
+        //ar[0]= width;
+        //ar[1] =height;
     }
 
     public static Settings getInstance()
@@ -30,8 +30,12 @@ public class Settings {
         return single_instance;
     }
 
-    public String[] GetSize(){
+    Integer[] GetSize(){
 
         return ar;
+    }
+    void SetSize(int x, int y){
+        ar[0] = x;
+        ar[1] = y;
     }
 }

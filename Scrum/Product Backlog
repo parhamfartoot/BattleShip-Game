@@ -13,12 +13,6 @@ That Includes the Pre-set sizes for map. (E.g Small, Medium, Large) and Choosing
 game mode (E.g Single player and Two player)
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
-Type: UserStory 3.1
-Name: Selecting map size
-Issue: The player must be able to choose the map size they prefer and the screen size 
-Should change according to this.
--------------------------------------------------------------------------------
--------------------------------------------------------------------------------
 Type: UserStory 4.1
 Name: Single Player
 Issue: Create a single player Mode for the Game
@@ -42,13 +36,6 @@ Issue: Add a tutorial, player would be able to chose wether they want to go thro
 Tutorial or not by clicking on the tutorial button available in the start screen.
 -------------------------------------------------------------------------------
 
-
-
--------------------------------------------------------------------------------
-Type: Bug 1
-Name: screen Size
-Issue: The size of the screen is not adjusted. It is possible that we have pins on the Y-axis or on the X-axis that won't be properly displayed on the screen at the start.
--------------------------------------------------------------------------------
 
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
@@ -93,6 +80,15 @@ Name: Show the state of shot
 Issue: After a shot has been made, the transition screen should inform the player whether their shot was a hit, or a miss.
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
+Type: UserStory 3.1
+Name: Selecting map size
+Issue: The player must be able to choose the map size they prefer and the screen size 
+Should change according to this.
+-------------------------------------------------------------------------------
+
+
+
+-------------------------------------------------------------------------------
 Type: Bug 3
 Name: Pins clicked
 Issue: Currently the player can click on a certain pin to shoot during game more than once. Once a pin has been chose for a shot they should no longer count as a new shot.
@@ -108,4 +104,9 @@ Type: Bug 2.1
 Name: Overlapping ships
 Issue: Currently the player can place the ships in such a way that they would overlap.
 This must be a forbidden state. 
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Type: Bug 1
+Name: screen Size
+Issue: The size of the screen is not adjusted. It is possible that we have pins on the Y-axis or on the X-axis that won't be properly displayed on the screen at the start.
 -------------------------------------------------------------------------------

@@ -16,7 +16,7 @@ class Transition extends StackPane {
      * Transition has a button that when clicked, moves to the next player, allowing them to play
      */
     Transition(){
-        Canvas canvas = new Canvas(Integer.parseInt(Settings.getInstance().GetSize()[0]), Integer.parseInt(Settings.getInstance().GetSize()[1]));
+        Canvas canvas = new Canvas(Settings.getInstance().GetSize()[0],Settings.getInstance().GetSize()[1]);
         this.setStyle(Settings.getInstance().backGround);
 
         //Shows the state of the players shot
