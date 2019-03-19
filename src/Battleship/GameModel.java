@@ -18,8 +18,8 @@ public class GameModel extends Observable{
     private Boolean mutliplayer = true;
     private int boardsize = 0;
     private int selection = 0;
-     ImageView shipToPlace; // The ship that needs to be placed on board
-    int count =1;
+    ImageView shipToPlace; // The ship that needs to be placed on board
+    int count =0;
     private int init=0;
     private int[] score = new int[2];
     private String hitState;

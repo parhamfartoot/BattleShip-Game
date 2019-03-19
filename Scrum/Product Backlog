@@ -43,16 +43,11 @@ Tutorial or not by clicking on the tutorial button available in the start screen
 -------------------------------------------------------------------------------
 
 
+
 -------------------------------------------------------------------------------
 Type: Bug 1
 Name: screen Size
 Issue: The size of the screen is not adjusted. It is possible that we have pins on the Y-axis or on the X-axis that won't be properly displayed on the screen at the start.
--------------------------------------------------------------------------------
--------------------------------------------------------------------------------
-Type: Bug 2.1
-Name: Overlapping ships
-Issue: Currently the player can place the ships in such a way that they would overlap.
-This must be a forbidden state. 
 -------------------------------------------------------------------------------
 
 
@@ -107,4 +102,10 @@ Type: Bug 2.2
 Name: Duplicate Ships 
 Issue: Currently the player can place a ship on the board more than once. This is a 
 Forbidden state and only one instance per each type of ship should be allowed
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Type: Bug 2.1
+Name: Overlapping ships
+Issue: Currently the player can place the ships in such a way that they would overlap.
+This must be a forbidden state. 
 -------------------------------------------------------------------------------

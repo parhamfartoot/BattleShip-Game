@@ -42,23 +42,16 @@ public class Pin
                 if ((model.shipToPlace != null)&& !this.hasClicked) {
                     // Places the ship that has been chosen by player on the board
 
-                    model.shipToPlace.setLayoutX(c.getCenterX() - 25);
-                    model.shipToPlace.setLayoutY(c.getCenterY()-25);
-                    model.GetPlayer().getChildren().add(0,model.shipToPlace);
-                    Align();
+                    Align(this);
 
                     // If the player has placed all their ships, moves to the next player
                     if (model.count == 4) {
-                        model.count = 1;
+                        model.count = 0;
                         model.Start();
                         model.ChangeState();
                         model.ChangePlayer();
                     }
-                    else {
-                        model.count++;
-                    }this.hasClicked =true;
                 }
-                model.shipToPlace = null;
 
 
             }

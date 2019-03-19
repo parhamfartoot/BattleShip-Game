@@ -20,8 +20,10 @@ public class Ships {
 
     protected Ships(){
     }
+
     public void setAction(){
-        this.img.setOnMouseClicked(
+        //Add a listener to the ship's image
+            this.img.setOnMouseClicked(
                 new EventHandler<MouseEvent>(){
                     public void handle(MouseEvent e){
                         Clicked();
@@ -29,8 +31,10 @@ public class Ships {
                 });
     }
     private void Clicked() {
+        // get the ships image on click to be placed
+        if (GameModel.getInstance().shipToPlace == null)
+            GameModel.getInstance().shipToPlace = this.getShip();
 
-        GameModel.getInstance().shipToPlace = this.getShip();
     }
     protected void setW(int W){ this.Width = W; } //Set the Width of ship
     protected void setH(int H){this.Height = H; } //Set the Height of ship
@@ -44,9 +48,41 @@ public class Ships {
     protected ImageView getShip(){ return img; } //Return the ships artwork
 
 
-    static void Align(){
+    static void Align(Pin pin) {
         //Aligns the ship with the board, informing the pins that are contained by the ship
+        ImageView ship = GameModel.getInstance().shipToPlace;
+        GameModel.getInstance().GetPlayer().getChildren().remove(GameModel.getInstance().shipToPlace);
 
+        //set the location of the ship's image
+        ship.setLayoutX(pin.c.getCenterX() - 25);
+        ship.setLayoutY(pin.c.getCenterY() - 25);
+        GameModel.getInstance().GetPlayer().getChildren().add(GameModel.getInstance().shipToPlace);
+        GameModel.getInstance().count++;
+
+        if (Collides()) {
+            //if the ship collides, remove the ship
+            GameModel.getInstance().GetPlayer().getChildren().remove(GameModel.getInstance().shipToPlace);
+            GameModel.getInstance().count--;
+        } else {
+            //if the ship doesnt collide , color the pins and disable them
+            ColorPin();pin.hasClicked =true;
+        }
+
+    }
+
+    static Boolean Collides(){
+        //Checks if any of the ships collide
+        Board board = GameModel.getInstance().GetPlayer();
+        for (Node n: board.getChildren()){
+            if (n instanceof Circle){
+                if (isContained((Circle) n, GameModel.getInstance().shipToPlace) && ((Circle) n).getFill() == Color.GREEN){
+                    return true;
+                }
+            }
+        } return false;
+    }
+    static void ColorPin(){
+        //Changes the color of the according pins
         Board board = GameModel.getInstance().GetPlayer();
         for (Node n: board.getChildren()){
             if (n instanceof Circle){
@@ -54,8 +90,9 @@ public class Ships {
                     ((Circle) n).setFill(Color.GREEN);
                 }
             }
-        }
+        } GameModel.getInstance().shipToPlace = null;
     }
+
 
     private static boolean isContained(Circle circle,ImageView image) {
         //Checks to see if circle of component of a Pin object is inside the ships boundaries
