@@ -1,24 +1,5 @@
 
 -------------------------------------------------------------------------------
-Type: UserStory 3
-Name: Start screen
-Issue: We need to add a start in Screen, replacing the Transition Screen At the
-Start of the game. On this screen a player would be able to choose so Setting options
-That Includes the Pre-set sizes for map. (E.g Small, Medium, Large) and Choosing the
-game mode (E.g Single player and Two player)
--------------------------------------------------------------------------------
--------------------------------------------------------------------------------
-Type: UserStory 4.1
-Name: Single Player
-Issue: Create a single player Mode for the Game
--------------------------------------------------------------------------------
--------------------------------------------------------------------------------
-Type: UserStory 4.2
-Name: AI fleet placement
-Issue: In the single player mode, the AI needs to be able to place the ships during
-the placement phase.
--------------------------------------------------------------------------------
--------------------------------------------------------------------------------
 Type: UserStory 4.3
 Name: AI fire
 Issue: The AI must be able to make the Choose at each turn according to where to shot.
@@ -81,6 +62,25 @@ Type: UserStory 3.1
 Name: Selecting map size
 Issue: The player must be able to choose the map size they prefer and the screen size 
 Should change according to this.
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Type: UserStory 3
+Name: Start screen
+Issue: We need to add a start in Screen, replacing the Transition Screen At the
+Start of the game. On this screen a player would be able to choose so Setting options
+That Includes the Pre-set sizes for map. (E.g Small, Medium, Large) and Choosing the
+game mode (E.g Single player and Two player)
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Type: UserStory 4.1
+Name: Single Player
+Issue: Create a single player Mode for the Game
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Type: UserStory 4.2
+Name: AI fleet placement
+Issue: In the single player mode, the AI needs to be able to place the ships during
+the placement phase.
 -------------------------------------------------------------------------------
 
 
