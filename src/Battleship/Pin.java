@@ -32,7 +32,7 @@ public class Pin
     }
 
     // The handler of the click
-    private void Clicked(MouseEvent e) {
+    void Clicked(MouseEvent e) {
         GameModel model = GameModel.getInstance();
 
         if (model.IsInitPhase()){
@@ -42,7 +42,7 @@ public class Pin
                 if ((model.shipToPlace != null)&& !this.hasClicked) {
                     // Places the ship that has been chosen by player on the board
 
-                    Align(this);
+                    if(Align(this.c)) this.hasClicked = true;
 
                     // If the player has placed all their ships, moves to the next player
                     if (model.count == 4) {
@@ -83,13 +83,13 @@ public class Pin
                         {
                             // Changes the color of pins to red if shot was a hit
                         ((Circle) n).setFill(Color.RED);
-                        this.c.setFill(Color.RED);
+                        c.setFill(Color.RED);
                         //Adds to the players score
                         GameModel.getInstance().AddScore();
                         //Set the text accordingly
                         GameModel.getInstance().setShot("Your shot was a hit");
                         }
-                    else {this.c.setFill(Color.YELLOW);GameModel.getInstance().setShot("Your shot was a miss");} //Change color to yellow if the shot was a miss
+                    else {c.setFill(Color.YELLOW);GameModel.getInstance().setShot("Your shot was a miss");} //Change color to yellow if the shot was a miss
 
                                 }
                             }

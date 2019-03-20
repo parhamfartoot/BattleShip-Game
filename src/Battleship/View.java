@@ -7,6 +7,8 @@ import javafx.stage.Stage;
 import java.util.Observable;
 import java.util.Observer;
 
+import static Battleship.AI.AI_FleetPlacement;
+
 public class View implements Observer {
     /* View is an observer, it has GameModel, Stage, BorderPane and Menu
      * View has GameModel as its observer and when change is made to GameModel the view will update, displaying the appropriate view for the game
@@ -32,7 +34,6 @@ public class View implements Observer {
         Rotate(scene);
         stage.setScene(scene);
         stage.setTitle("Welcome to BattleShips!");
-
         stage.show();
     }
 
@@ -47,17 +48,8 @@ public class View implements Observer {
         root.getChildren().clear();
         //If game options were selected during Start Menu
         if (model.getSelection() > 1) {
-            // If the game is in transition phase Displays the Transition, otherwise the according board
-            if (model.State()) {
-                this.root.setCenter(model.GetPlayer());
-                    if (model.IsInitPhase()){
-                        GameModel.getInstance().chooser = new ShipChooser();
-                        root.setLeft(GameModel.getInstance().chooser);}
-            } else {
-                //Check if a player has won the game
-                if (GameModel.getInstance().GetScore() == 700) {root.setCenter(new WinScreen());}
-                    else root.setCenter(new Transition());
-            }
+            // Play the Game
+            Play();
             // Sets the title to the current player
             stage.setTitle("Player " + model.Turn());
             // Start Menu Selection
@@ -66,11 +58,10 @@ public class View implements Observer {
             // Sets the title to the current player
             stage.setTitle("Player " + model.Turn());
 
-
         }
         stage.sizeToScene();}
 
-    private void Rotate(Scene scene) {
+    static void Rotate(Scene scene) {
         //set the keyHandler to implement rotation
         scene.setOnKeyPressed((event) -> {
             if (GameModel.getInstance().shipToPlace != null){
@@ -83,5 +74,23 @@ public class View implements Observer {
                 GameModel.getInstance().shipToPlace.setRotate(GameModel.getInstance().shipToPlace.getRotate()-90);
             }}
         });
+    }
+
+    private void Play(){
+        // If the game is in transition phase Displays the Transition, otherwise the according board
+        if (model.State()) {
+            this.root.setCenter(model.GetPlayer());
+            if (GameModel.getInstance().GetMode() && GameModel.getInstance().Player() ==2){
+                if (model.IsInitPhase()){AI_FleetPlacement(GameModel.getInstance().AI_Pins());}
+
+            }
+            if (model.IsInitPhase()){
+                GameModel.getInstance().chooser = new ShipChooser();
+                root.setLeft(GameModel.getInstance().chooser);}
+        } else {
+            //Check if a player has won the game
+            if (GameModel.getInstance().GetScore() == 700) {root.setCenter(new WinScreen());}
+            else root.setCenter(new Transition());
+        }
     }
 }

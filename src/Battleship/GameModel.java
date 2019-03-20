@@ -1,8 +1,10 @@
 package Battleship;
 
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
 import java.util.Observable;
 
 public class GameModel extends Observable{
@@ -17,7 +19,7 @@ public class GameModel extends Observable{
     private Board player1; // Player1's board
     private Board player2; // Player2's board
     private Boolean state = false;
-    private Boolean mutliplayer = true;
+    private Boolean mutliplayer;
     private int boardsize = 0;
     private int selection = 0;
     ImageView shipToPlace; // The ship that needs to be placed on board
@@ -27,6 +29,7 @@ public class GameModel extends Observable{
     private String hitState;
     Stage stage;
     ShipChooser chooser;
+    private ArrayList<Circle> nodes = new ArrayList<Circle>();
 
     //declares the GameModel as singleton
     private static GameModel single_instance = null;
@@ -48,6 +51,7 @@ public class GameModel extends Observable{
         //Creates the boards for players
         this.player1 = new Board(); // Player1's board
         this.player2 = new Board(); // Player2's board
+        Make_AI_Pins();
     }
 
     void ChangeState(){
@@ -67,6 +71,8 @@ public class GameModel extends Observable{
     void setMultiplayer(Boolean multi){
     	this.mutliplayer = multi;
     }
+
+    Boolean GetMode() {return this.mutliplayer;}
     
     boolean State(){
         // return the current state
@@ -126,5 +132,15 @@ public class GameModel extends Observable{
         //Returns the string representative of your last shot
         return hitState;
     }
-    void Update(){setChanged();notifyObservers();}
+    ArrayList<Circle> AI_Pins(){return this.nodes; }
+
+    private void Make_AI_Pins(){
+        for (int i =0;i < player2.getChildren().size();i++){
+            if(player2.getChildren().get(i) instanceof Circle){
+                if (((Circle)player2.getChildren().get(i)).getCenterY()> Settings.getInstance().GetSize()[1]/2){
+                    this.nodes.add((Circle)player2.getChildren().get(i));
+                }
+            }
+        }
+    }
 }

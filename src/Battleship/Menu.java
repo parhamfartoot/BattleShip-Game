@@ -6,8 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 
-import java.util.Set;
-
 //author Sin Hwan Lee, 1001666084, leesin2
 
 public class Menu extends FlowPane {
@@ -110,7 +108,8 @@ public class Menu extends FlowPane {
     	Settings.getInstance().SetSize(500,700);
 		GameModel.getInstance().stage.setMaxHeight(725);
 		GameModel.getInstance().MakeBoard();
-        GameModel.getInstance().NextSelection();
+		GameModel.getInstance().NextSelection();
+
     }
     private void LargeClicked(MouseEvent e) {
 		//Set the size of board to large
