@@ -1,11 +1,5 @@
 
 -------------------------------------------------------------------------------
-Type: UserStory 4.3
-Name: AI fire
-Issue: The AI must be able to make the Choose at each turn according to where to shot.
-Keep in mind this shouldn't be pure random. The AI should be able to Make the best decision.
--------------------------------------------------------------------------------
--------------------------------------------------------------------------------
 Type: UserStory 5
 Name: Tutorial
 Issue: Add a tutorial, player would be able to chose wether they want to go through the
@@ -81,6 +75,12 @@ Type: UserStory 4.2
 Name: AI fleet placement
 Issue: In the single player mode, the AI needs to be able to place the ships during
 the placement phase.
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Type: UserStory 4.3
+Name: AI fire
+Issue: The AI must be able to make the Choose at each turn according to where to shot.
+Keep in mind this shouldn't be pure random. The AI should be able to Make the best decision.
 -------------------------------------------------------------------------------
 
 

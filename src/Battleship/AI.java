@@ -35,10 +35,11 @@ public class AI {
             GameModel.getInstance().stage.sizeToScene();
 
         if (Align(nodes.get(p))){nodes.remove(circle);ships.remove(n);}
-        }GameModel.getInstance().Start();
+        }
+        GameModel.getInstance().Start();
+        GameModel.getInstance().ChangePlayer();
         GameModel.getInstance().ChangeState();
-            GameModel.getInstance().ChangeState();
-            GameModel.getInstance().ChangePlayer();
+        GameModel.getInstance().ChangeState();
 
     }
     static void AI_Fire() {
@@ -48,7 +49,7 @@ public class AI {
         IsHit(nodes.get(n));
         nodes.remove(n);
         if (GameModel.getInstance().GetScore() == 700) {GameModel.getInstance().view.getRoot().setCenter(new WinScreen());}
-        GameModel.getInstance().ChangeState();
+        else GameModel.getInstance().ChangeState();
 
     }
 }

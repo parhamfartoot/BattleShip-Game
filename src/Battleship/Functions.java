@@ -109,8 +109,8 @@ public class Functions {
         if (GameModel.getInstance().State()) {
             view.getRoot().setCenter(GameModel.getInstance().GetPlayer());
             if (!GameModel.getInstance().GetMode() && GameModel.getInstance().Player() ==2){
-                if (GameModel.getInstance().IsInitPhase()){AI_FleetPlacement();}else  AI_Fire();
-
+                if (GameModel.getInstance().IsInitPhase()){AI_FleetPlacement();}
+                else  AI_Fire();
             }
             if (GameModel.getInstance().IsInitPhase()){
                 GameModel.getInstance().chooser = new ShipChooser();
@@ -123,7 +123,7 @@ public class Functions {
     }
     static void IsHit(Circle c){
         //Checks if the shot fires was a hit and acts accordingly
-
+        System.out.println("fire");
         double hitX = c.getCenterX(); //appropriate X-axis value of shot fired on enemy board
         double hitY = c.getCenterY() + Settings.getInstance().GetSize()[1]/2; //appropriate Y-axis value of shot fired on enemy board
         Board board = GameModel.getInstance().GetEnemy(); //Enemies board
@@ -146,8 +146,8 @@ public class Functions {
 
                 }
             }
-        }if (GameModel.getInstance().GetScore() == 700) {GameModel.getInstance().view.getRoot().setCenter(new WinScreen());}
+        }if (GameModel.getInstance().GetScore() == 700) {GameModel.getInstance().view.getRoot().setCenter(new WinScreen());}else {
         GameModel.getInstance().ChangeState();
-            GameModel.getInstance().ChangePlayer();
+            GameModel.getInstance().ChangePlayer();}
     }
 }
