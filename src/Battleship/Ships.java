@@ -1,13 +1,9 @@
 package Battleship;
 
 import javafx.event.EventHandler;
-import javafx.geometry.Bounds;
-import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 
 public class Ships {
     /* A Ship has a Width, Height and an Artwork
@@ -46,82 +42,4 @@ public class Ships {
         this.img.setFitHeight(Height);
     }
     protected ImageView getShip(){ return this.img; } //Return the ships artwork
-
-
-    static Boolean Align(Circle c) {
-        //Aligns the ship with the board, informing the pins that are contained by the ship
-        GameModel.getInstance().GetPlayer().getChildren().remove(GameModel.getInstance().shipToPlace);
-        //set the location of the ship's image
-
-        //Check for rotation
-        if (GameModel.getInstance().shipToPlace.getRotate()%180 ==0){
-            GameModel.getInstance().shipToPlace.setLayoutX(c.getCenterX()-25);
-            GameModel.getInstance().shipToPlace.setLayoutY(c.getCenterY() -25);
-        }else {
-            if (GameModel.getInstance().shipToPlace.getFitWidth() ==50)
-            {
-                GameModel.getInstance().shipToPlace.setLayoutX(c.getCenterX()+GameModel.getInstance().shipToPlace.getFitHeight()/2
-                        -GameModel.getInstance().shipToPlace.getFitWidth());
-                GameModel.getInstance().shipToPlace.setLayoutY(c.getCenterY()+GameModel.getInstance().shipToPlace.getFitWidth()/2
-                        -GameModel.getInstance().shipToPlace.getFitHeight()/2 -25);
-            }else {
-            GameModel.getInstance().shipToPlace.setLayoutX(c.getCenterX()+GameModel.getInstance().shipToPlace.getFitHeight()/2
-                    -GameModel.getInstance().shipToPlace.getFitWidth()+25);
-            GameModel.getInstance().shipToPlace.setLayoutY(c.getCenterY()+GameModel.getInstance().shipToPlace.getFitWidth()/2
-                    -GameModel.getInstance().shipToPlace.getFitHeight()/2 -25);}
-
-        }
-        GameModel.getInstance().GetPlayer().getChildren().add(0,
-                GameModel.getInstance().shipToPlace);
-        GameModel.getInstance().count++;
-
-        if (Collides() || !Bounded()){
-            //if the ship collides, remove the ship
-
-            GameModel.getInstance().GetPlayer().getChildren().remove(GameModel.getInstance().shipToPlace);
-            GameModel.getInstance().count--;
-            return false;
-        } else {
-            //if the ship doesnt collide , color the pins and disable them
-            ColorPin();return true;
-        }
-
-    }
-    private static Boolean Bounded(){
-        //Check if the ship is bounded by the board
-        Bounds r1Bounds = GameModel.getInstance().shipToPlace.getBoundsInParent();
-        Bounds r2Bounds = GameModel.getInstance().GetPlayer().getLayoutBounds();
-        //Compare the edges of the ship with the edges of the board
-        if(r2Bounds.contains(r1Bounds)){return true;}
-        //System.out.println("eror bound");
-        return false;
-    }
-    private static Boolean Collides(){
-        //Checks if any of the ships collide
-        Bounds r1Bounds = GameModel.getInstance().shipToPlace.getBoundsInParent();
-        Board board = GameModel.getInstance().GetPlayer();
-        for (Node n: board.getChildren()){
-            if (n instanceof Circle){
-                Bounds r2Bounds = n.getBoundsInParent();
-                //if any of the pins bounded by ship are green that would mean, collision
-                if (r2Bounds.intersects(r1Bounds) && ((Circle) n).getFill() == Color.GREEN){
-                    return true;
-                }
-            }
-        } //System.out.println("error collide");
-        return false;
-    }
-    private static void ColorPin(){
-        //Changes the color of the Pins that are bounded by the image
-        Board board = GameModel.getInstance().GetPlayer();
-        Bounds r1Bounds = GameModel.getInstance().shipToPlace.getBoundsInParent();
-        for (Node n: board.getChildren()){
-            if (n instanceof Circle){
-                Bounds c1Bounds = n.getBoundsInParent();
-                if (c1Bounds.intersects(r1Bounds)){
-                    ((Circle) n).setFill(Color.GREEN);
-                }
-            }
-        } GameModel.getInstance().shipToPlace = null;
-    }
 }

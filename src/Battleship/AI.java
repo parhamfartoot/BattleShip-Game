@@ -3,10 +3,10 @@ package Battleship;
 import javafx.scene.shape.Circle;
 import java.util.ArrayList;
 import java.util.Random;
-import static Battleship.Ships.Align;
+
+import static Battleship.Functions.Align;
 
 public class AI {
-    Board playerBoard = GameModel.getInstance().GetEnemy();
 
 
     AI(){
@@ -14,7 +14,6 @@ public class AI {
     }
     static void AI_FleetPlacement( ArrayList<Circle> nodes){
         ArrayList<Ships> ships = new ArrayList<Ships>(GameModel.getInstance().chooser.ships.subList(4,8));
-        Board AI_board = GameModel.getInstance().GetPlayer();
         Random rand = new Random();
         int n;
         while (ships.size() != 0){
@@ -34,7 +33,6 @@ public class AI {
             GameModel.getInstance().stage.sizeToScene();
 
         if (Align(nodes.get(p))){nodes.remove(circle);ships.remove(n);}
-        //if (pin.hasClicked)
         }
 
     }

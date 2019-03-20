@@ -6,7 +6,7 @@ import javafx.scene.shape.Circle;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
-import static Battleship.Ships.Align;
+import static Battleship.Functions.Align;
 
 public class Pin
 {

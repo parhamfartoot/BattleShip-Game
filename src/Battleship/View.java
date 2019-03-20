@@ -1,13 +1,12 @@
 package Battleship;
 
 import javafx.scene.Scene;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import java.util.Observable;
 import java.util.Observer;
-
-import static Battleship.AI.AI_FleetPlacement;
+import static Battleship.Functions.Play;
+import static Battleship.Functions.Rotate;
 
 public class View implements Observer {
     /* View is an observer, it has GameModel, Stage, BorderPane and Menu
@@ -49,7 +48,7 @@ public class View implements Observer {
         //If game options were selected during Start Menu
         if (model.getSelection() > 1) {
             // Play the Game
-            Play();
+            Play(this);
             // Sets the title to the current player
             stage.setTitle("Player " + model.Turn());
             // Start Menu Selection
@@ -60,37 +59,5 @@ public class View implements Observer {
 
         }
         stage.sizeToScene();}
-
-    static void Rotate(Scene scene) {
-        //set the keyHandler to implement rotation
-        scene.setOnKeyPressed((event) -> {
-            if (GameModel.getInstance().shipToPlace != null){
-            if (event.getCode() == KeyCode.E) {
-                //If E is pressed rotate clockwise
-                GameModel.getInstance().shipToPlace.setRotate(GameModel.getInstance().shipToPlace.getRotate()+90);
-            }
-            else if (event.getCode() == KeyCode.Q) {
-                //If Q is pressed rotate Counter-Clockwise
-                GameModel.getInstance().shipToPlace.setRotate(GameModel.getInstance().shipToPlace.getRotate()-90);
-            }}
-        });
-    }
-
-    private void Play(){
-        // If the game is in transition phase Displays the Transition, otherwise the according board
-        if (model.State()) {
-            this.root.setCenter(model.GetPlayer());
-            if (GameModel.getInstance().GetMode() && GameModel.getInstance().Player() ==2){
-                if (model.IsInitPhase()){AI_FleetPlacement(GameModel.getInstance().AI_Pins());}
-
-            }
-            if (model.IsInitPhase()){
-                GameModel.getInstance().chooser = new ShipChooser();
-                root.setLeft(GameModel.getInstance().chooser);}
-        } else {
-            //Check if a player has won the game
-            if (GameModel.getInstance().GetScore() == 700) {root.setCenter(new WinScreen());}
-            else root.setCenter(new Transition());
-        }
-    }
+    BorderPane getRoot(){return  this.root;}
 }
