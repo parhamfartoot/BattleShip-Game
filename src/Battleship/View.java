@@ -49,7 +49,11 @@ public class View implements Observer {
         //If game options were selected during Start Menu
         if (model.getSelection() > 1) {
             // Play the Game
-            Play(this);
+            try {
+                Play(this);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             // Sets the title to the current player
             stage.setTitle("Player " + model.Turn());
             // Start Menu Selection

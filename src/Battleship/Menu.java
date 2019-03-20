@@ -17,13 +17,13 @@ public class Menu extends FlowPane {
     public Menu(int selection){
     	// Pane Settings
 
-    	//this.setMinSize(Settings.getInstance().GetSize()[0], Settings.getInstance().GetSize()[1]);
+		this.setStyle(Settings.getInstance().backGround);
+
 		this.setMinSize(1000, 1000);
     	this.setPadding(new Insets(5, 0, 5, 0));
 
     	this.setVgap(4);
     	this.setHgap(4);
-    	this.setStyle("-fx-background-color: DAE6F3");
     	
     	// Single or Multi-Player Selection Menu
     	if (selection == 0){

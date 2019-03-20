@@ -18,7 +18,7 @@ public class Pin
     Circle c;
     Boolean hasClicked;
 
-    public Pin(int x1, int y1) {
+    Pin(int x1, int y1) {
         // Create a circle object for the pin and add a listiner to the circle
 
         this.c = new Circle(x1, y1,9, Color.WHITE);//Add the circle for the pin
@@ -27,13 +27,13 @@ public class Pin
         this.c.setOnMouseClicked(
             new EventHandler<MouseEvent>(){
                 public void handle(MouseEvent e){
-                    Clicked(e);
+                        Clicked(e);
                 }
             });
     }
 
     // The handler of the click
-    void Clicked(MouseEvent e) {
+    void Clicked(MouseEvent e){
         GameModel model = GameModel.getInstance();
 
         if (model.IsInitPhase()){

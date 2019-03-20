@@ -9,6 +9,8 @@ import javafx.scene.shape.Circle;
 
 import static Battleship.AI.AI_Fire;
 import static Battleship.AI.AI_FleetPlacement;
+import static Battleship.AudioController.playExplosionSound;
+import static Battleship.AudioController.playLaserSound;
 
 public class Functions {
     Functions(){}
@@ -123,7 +125,7 @@ public class Functions {
     }
     static void IsHit(Circle c){
         //Checks if the shot fires was a hit and acts accordingly
-        System.out.println("fire");
+        playLaserSound();
         double hitX = c.getCenterX(); //appropriate X-axis value of shot fired on enemy board
         double hitY = c.getCenterY() + Settings.getInstance().GetSize()[1]/2; //appropriate Y-axis value of shot fired on enemy board
         Board board = GameModel.getInstance().GetEnemy(); //Enemies board
@@ -137,6 +139,7 @@ public class Functions {
                         // Changes the color of pins to red if shot was a hit
                         ((Circle) n).setFill(Color.RED);
                         c.setFill(Color.RED);
+                        playExplosionSound();
                         //Adds to the players score
                         GameModel.getInstance().AddScore();
                         //Set the text accordingly

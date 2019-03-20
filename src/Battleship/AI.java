@@ -42,7 +42,7 @@ public class AI {
         GameModel.getInstance().ChangeState();
 
     }
-    static void AI_Fire() {
+    static void AI_Fire(){
         Random rand = new Random();
         ArrayList<Circle> nodes = GameModel.getInstance().AI_Enemy_Pins();
         int n = rand.nextInt(nodes.size() - 1);

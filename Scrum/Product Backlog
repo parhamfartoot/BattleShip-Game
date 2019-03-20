@@ -118,3 +118,8 @@ Type: UserStory 2.4
 Name: Rotating ship
 Issue: The player should be able to rotate their ships by pressing "Q" or "E"
 -------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Type: UserStory 6
+Name: Audio
+Issue: Add a Background music to the game, and a sound effect for shot fired.
+------------------------------------------------------------------------------
