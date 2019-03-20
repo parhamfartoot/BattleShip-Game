@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
 import static Battleship.Functions.Align;
+import static Battleship.Functions.IsHit;
 
 public class Pin
 {
@@ -61,38 +62,8 @@ public class Pin
                 if((this.c.getCenterY() < Settings.getInstance().GetSize()[1]/2)&& !this.hasClicked){
                     // Checks if the fire was a hit and Changes the player
                     IsHit(this.c);
-                    model.ChangeState();
-                    model.ChangePlayer();
                     this.hasClicked =true;
                         }
                     }
-                }
-
-    private void IsHit(Circle c){
-        //Checks if the shot fires was a hit and acts accordingly
-
-        double hitX = c.getCenterX(); //appropriate X-axis value of shot fired on enemy board
-        double hitY = c.getCenterY() + Settings.getInstance().GetSize()[1]/2; //appropriate Y-axis value of shot fired on enemy board
-        Board board = GameModel.getInstance().GetEnemy(); //Enemies board
-        
-        for (Node n: board.getChildren()){
-            if (n instanceof Circle){
-                if (((Circle) n).getCenterY() == hitY && ((Circle) n).getCenterX() == hitX)
-                {
-                    if (((Circle) n).getFill().equals(Color.GREEN)) //Checks if a ship has been placed on that pin
-                        {
-                            // Changes the color of pins to red if shot was a hit
-                        ((Circle) n).setFill(Color.RED);
-                        c.setFill(Color.RED);
-                        //Adds to the players score
-                        GameModel.getInstance().AddScore();
-                        //Set the text accordingly
-                        GameModel.getInstance().setShot("Your shot was a hit");
-                        }
-                    else {c.setFill(Color.YELLOW);GameModel.getInstance().setShot("Your shot was a miss");} //Change color to yellow if the shot was a miss
-
-                                }
-                            }
-                        }
                 }
 }

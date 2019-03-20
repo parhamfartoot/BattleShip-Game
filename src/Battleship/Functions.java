@@ -7,6 +7,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
+import static Battleship.AI.AI_Fire;
 import static Battleship.AI.AI_FleetPlacement;
 
 public class Functions {
@@ -57,7 +58,6 @@ public class Functions {
         Bounds r2Bounds = GameModel.getInstance().GetPlayer().getLayoutBounds();
         //Compare the edges of the ship with the edges of the board
         if(r2Bounds.contains(r1Bounds)){return true;}
-        //System.out.println("eror bound");
         return false;
     }
     private static Boolean Collides(){
@@ -72,7 +72,7 @@ public class Functions {
                     return true;
                 }
             }
-        } //System.out.println("error collide");
+        }
         return false;
     }
     private static void ColorPin(){
@@ -109,7 +109,7 @@ public class Functions {
         if (GameModel.getInstance().State()) {
             view.getRoot().setCenter(GameModel.getInstance().GetPlayer());
             if (!GameModel.getInstance().GetMode() && GameModel.getInstance().Player() ==2){
-                if (GameModel.getInstance().IsInitPhase()){AI_FleetPlacement(GameModel.getInstance().AI_Pins());}
+                if (GameModel.getInstance().IsInitPhase()){AI_FleetPlacement();}else  AI_Fire();
 
             }
             if (GameModel.getInstance().IsInitPhase()){
@@ -120,5 +120,34 @@ public class Functions {
             if (GameModel.getInstance().GetScore() == 700) {view.getRoot().setCenter(new WinScreen());}
             else view.getRoot().setCenter(new Transition());
         }
+    }
+    static void IsHit(Circle c){
+        //Checks if the shot fires was a hit and acts accordingly
+
+        double hitX = c.getCenterX(); //appropriate X-axis value of shot fired on enemy board
+        double hitY = c.getCenterY() + Settings.getInstance().GetSize()[1]/2; //appropriate Y-axis value of shot fired on enemy board
+        Board board = GameModel.getInstance().GetEnemy(); //Enemies board
+
+        for (Node n: board.getChildren()){
+            if (n instanceof Circle){
+                if (((Circle) n).getCenterY() == hitY && ((Circle) n).getCenterX() == hitX)
+                {
+                    if (((Circle) n).getFill().equals(Color.GREEN)) //Checks if a ship has been placed on that pin
+                    {
+                        // Changes the color of pins to red if shot was a hit
+                        ((Circle) n).setFill(Color.RED);
+                        c.setFill(Color.RED);
+                        //Adds to the players score
+                        GameModel.getInstance().AddScore();
+                        //Set the text accordingly
+                        GameModel.getInstance().setShot("Your shot was a hit");
+                    }
+                    else {c.setFill(Color.YELLOW);GameModel.getInstance().setShot("Your shot was a miss");} //Change color to yellow if the shot was a miss
+
+                }
+            }
+        }if (GameModel.getInstance().GetScore() == 700) {GameModel.getInstance().view.getRoot().setCenter(new WinScreen());}
+        GameModel.getInstance().ChangeState();
+            GameModel.getInstance().ChangePlayer();
     }
 }

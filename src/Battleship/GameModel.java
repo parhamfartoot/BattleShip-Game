@@ -29,7 +29,9 @@ public class GameModel extends Observable{
     private String hitState;
     Stage stage;
     ShipChooser chooser;
-    private ArrayList<Circle> nodes = new ArrayList<Circle>();
+    private ArrayList<Circle> AI_nodes = new ArrayList<Circle>();
+    private ArrayList<Circle> AI_Enemy_nodes = new ArrayList<Circle>();
+    View view;
 
     //declares the GameModel as singleton
     private static GameModel single_instance = null;
@@ -52,6 +54,7 @@ public class GameModel extends Observable{
         this.player1 = new Board(); // Player1's board
         this.player2 = new Board(); // Player2's board
         Make_AI_Pins();
+        Make_AI_Enemy_Pins();
     }
 
     void ChangeState(){
@@ -65,8 +68,7 @@ public class GameModel extends Observable{
     	this.selection++;
     	setChanged(); notifyObservers();
     }
-    
-    //public void setSelection(int sel){this.selection = sel;}
+
 
     void setMultiplayer(Boolean multi){
     	this.mutliplayer = multi;
@@ -132,13 +134,24 @@ public class GameModel extends Observable{
         //Returns the string representative of your last shot
         return hitState;
     }
-    ArrayList<Circle> AI_Pins(){return this.nodes; }
+
+    ArrayList<Circle> AI_Pins(){return this.AI_nodes; }
+    ArrayList<Circle> AI_Enemy_Pins(){return this.AI_Enemy_nodes; }
 
     private void Make_AI_Pins(){
         for (int i =0;i < player2.getChildren().size();i++){
             if(player2.getChildren().get(i) instanceof Circle){
                 if (((Circle)player2.getChildren().get(i)).getCenterY()> Settings.getInstance().GetSize()[1]/2){
-                    this.nodes.add((Circle)player2.getChildren().get(i));
+                    this.AI_nodes.add((Circle)player2.getChildren().get(i));
+                }
+            }
+        }
+    }
+    private void Make_AI_Enemy_Pins(){
+        for (int i =0;i < player2.getChildren().size();i++){
+            if(player2.getChildren().get(i) instanceof Circle){
+                if (((Circle)player2.getChildren().get(i)).getCenterY()< Settings.getInstance().GetSize()[1]/2){
+                    this.AI_Enemy_nodes.add((Circle)player2.getChildren().get(i));
                 }
             }
         }

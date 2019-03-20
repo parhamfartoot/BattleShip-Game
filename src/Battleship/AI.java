@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import static Battleship.Functions.Align;
+import static Battleship.Functions.IsHit;
 
 public class AI {
 
@@ -12,8 +13,9 @@ public class AI {
     AI(){
 
     }
-    static void AI_FleetPlacement( ArrayList<Circle> nodes){
+    static void AI_FleetPlacement(){
         ArrayList<Ships> ships = new ArrayList<Ships>(GameModel.getInstance().chooser.ships.subList(4,8));
+        ArrayList<Circle> nodes = GameModel.getInstance().AI_Pins();
         Random rand = new Random();
         int n;
         while (ships.size() != 0){
@@ -33,8 +35,21 @@ public class AI {
             GameModel.getInstance().stage.sizeToScene();
 
         if (Align(nodes.get(p))){nodes.remove(circle);ships.remove(n);}
-        }
+        }GameModel.getInstance().Start();
+        GameModel.getInstance().ChangeState();
+            GameModel.getInstance().ChangeState();
+            GameModel.getInstance().ChangePlayer();
 
     }
+    static void AI_Fire() {
+        Random rand = new Random();
+        ArrayList<Circle> nodes = GameModel.getInstance().AI_Enemy_Pins();
+        int n = rand.nextInt(nodes.size() - 1);
+        IsHit(nodes.get(n));
+        nodes.remove(n);
+        if (GameModel.getInstance().GetScore() == 700) {GameModel.getInstance().view.getRoot().setCenter(new WinScreen());}
+        GameModel.getInstance().ChangeState();
 
+    }
 }
+

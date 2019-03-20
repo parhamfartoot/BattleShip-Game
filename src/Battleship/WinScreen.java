@@ -19,7 +19,7 @@ public class WinScreen extends StackPane {
         //Setting the color of the text
         win.setFill(Color.WHITE);
         //setting the position of the text
-        win.setTranslateY(-500);
+        win.setTranslateY(-200);
         //Adds the component to the StackPane
         this.getChildren().add(win);
         //Set the size of the stage

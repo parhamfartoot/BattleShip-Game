@@ -18,9 +18,10 @@ public class View implements Observer {
     private BorderPane root = new BorderPane();
     private Menu gamemenu = new Menu(0);
 
-    protected View(Stage stage) {
+    View(Stage stage) {
         this.model = GameModel.getInstance();
         model.stage =stage;
+        model.view = this;
         this.stage = stage;
         setObservable();
         initUI(stage);
