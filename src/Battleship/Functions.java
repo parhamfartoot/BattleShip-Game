@@ -14,12 +14,13 @@ import static Battleship.AudioController.playLaserSound;
 
 public class Functions {
     Functions(){}
-
+    
+    /*** Align the ship with the board. Inform the pins that are contained by the ship.
+     * @param Circle c.
+     */
     static Boolean Align(Circle c) {
-        //Aligns the ship with the board, informing the pins that are contained by the ship
         GameModel.getInstance().GetPlayer().getChildren().remove(GameModel.getInstance().shipToPlace);
         //set the location of the ship's image
-
         //Check for rotation
         if (GameModel.getInstance().shipToPlace.getRotate()%180 ==0){
             GameModel.getInstance().shipToPlace.setLayoutX(c.getCenterX()-25);

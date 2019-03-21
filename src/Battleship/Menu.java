@@ -6,12 +6,13 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 
-//author Sin Hwan Lee, 1001666084, leesin2
-
+// author Sin Hwan Lee, 1001666084, leesin2
+ 
+/** Start Menu shown pre-game and contains settings for the
+ * game to be selected. 
+ */
 public class Menu extends FlowPane {
-	/* Start Menu shown pre-game and contains settings for the
-	 * game to be selected. 
-	 */
+
     public Button button1, button2, button3;
 
     public Menu(int selection){

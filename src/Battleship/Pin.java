@@ -9,8 +9,8 @@ import javafx.scene.input.MouseEvent;
 import static Battleship.Functions.Align;
 import static Battleship.Functions.IsHit;
 
-public class Pin
-{
+
+public class Pin {
     /* The pin has a circle of radius 9 and color white.
      * Every time the circle component of a pin is clicked on, based on the information about the state of the game stored in GameModel
      * the pin will act accordingly (Change color, go to the next player and etc.)

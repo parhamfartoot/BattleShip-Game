@@ -5,22 +5,21 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
+/*** A Board has a canvas, the size of this canvas is determined by the setting
+ * at instantiation the background of the board is set and BoardBuilder is called to populate the board.
+ */
 class Board extends Pane {
-    /* A has a canvas, the size of this canvas is determined by the setting
-     * At instantiation the background of the board is set and BoardBuilder is called to populate the board
-     */
 
     Canvas canvas;
 
      Board() {
 
-        // Set the background image
         this.setStyle(Settings.getInstance().backGround);
         //Calls BoardBuilder to populate the board
         new BoardBuilder(this);
         //Add a listener to the board
         this.setOnMouseEntered(new EventHandler<MouseEvent>(){public void handle(MouseEvent e){
-            //Draw the image on the board, as the cursor is moved around
+            //Handles cursor movement to draw the image on the board
             Move(e);
                 Board.this.setOnMouseMoved(
                     new EventHandler<MouseEvent>(){
@@ -43,10 +42,20 @@ class Board extends Pane {
             Board.this.getChildren().add(GameModel.getInstance().shipToPlace);
         }
     }
-
-    public int getH(){return (int)this.canvas.getHeight(); } // returns the height of the canvas
-
-    public int getW(){return (int)this.canvas.getWidth(); } // returns the width of the canvas
+    
+    /*** Return the Height of this canvas
+	 * 
+	 */
+    public int getH(){
+    	return (int)this.canvas.getHeight();
+    	}
+    
+    /*** Return the width of this canvas
+	 * 
+	 */
+    public int getW(){
+    	return (int)this.canvas.getWidth();
+    	}
 
     }
 

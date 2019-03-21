@@ -31,7 +31,6 @@ public class AudioController {
 
         FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
         gainControl.setValue(-20f);
-        //((FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN)).setValue(1-0.2f);
         clip.loop(Clip.LOOP_CONTINUOUSLY);
     }
 }
