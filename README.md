@@ -26,3 +26,16 @@ How to Run the Game
 ---
 
 1. Clone or Download the game from our git repository.
+2. Choose between *small, medium, or large* for the size of the game board.
+3. Player 1 must now place their four on the game board.
+4. i) The following steps depend on the game mode. If the two-player version was chosen, it is now Player 2's turn to place their ships.
+   
+   ii) If single-player was chosen, the AI will place its ships randomly.
+5. Player 1's turn to attack. Do so by clicking on a pin on the top half of the game board. If the shot is a miss, the pin will turn yellow. If the shot is a hit, the pin will turn red.
+6. Player 2 or AI's turn to attack.
+7. Repeat steps 5 and 6 until a player eliminates the opposing player's ships.
+---
+
+License
+---
+
