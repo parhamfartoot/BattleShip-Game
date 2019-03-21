@@ -35,22 +35,22 @@ How to Run the Game
 1. Clone or Download the game from our git repository.
 2. Import the files into your integrated workspace environment.
 3. Navigate to the Battleship.java class, located at `src -> Battleship -> Battleship.java`.
-4. Run as Java Application or `Alt+Shift+X`.
+4. Run as Java Application using `Alt+Shift+X`.
 
 ---
 
 How to Play
 ---
 
-1. Click on the single of two player version of the game.
+1. Click on the single or two player version of the game.
 2. Choose between *small, medium, or large* for the size of the game board.
-3. Player 1 must now place their four on the game board.
-4. i) The following steps depend on the game mode. If the two-player version was chosen, it is now Player 2's turn to place their ships.
+3. Player 1 must now place their four ships on the game board.
+4. i) The following steps depend on the game mode. If the two-player mode was chosen, it is now Player 2's turn to place their ships.
    
-   ii) If single-player was chosen, the AI will place its ships randomly.
+   ii) If single-player mode was chosen, the AI will place its ships randomly.
 5. Player 1's turn to attack. Do so by clicking on a pin on the top half of the game board. If the shot is a miss, the pin will turn yellow. If the shot is a hit, the pin will turn red.
 6. Player 2 or AI's turn to attack.
-7. Repeat steps 5 and 6 until a player eliminates the opposing player's ships.
+7. Repeat steps 5 and 6 until one player eliminates the opposing player's ships.
 
 ---
 
