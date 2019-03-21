@@ -12,3 +12,17 @@ Installation
 
 *Necessities*
 
+Ensure that you have an updated *Java Runtime Environment* installed on your system. *Java SE Runtime Environment 8* or later suffices. A link to JRE8 is as follows:
+
+https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html
+
+An integrated development environment is needed to run this game. We suggest using *Eclipse*. You can download Eclipse from:
+
+https://www.eclipse.org/downloads/
+
+---
+
+How to Run the Game
+---
+
+1. Clone or Download the game from our git repository.
