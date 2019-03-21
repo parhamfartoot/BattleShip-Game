@@ -13,7 +13,7 @@ public class WinScreen extends StackPane {
     WinScreen(){
         this.setStyle(Settings.getInstance().backGround);
         //Winning message
-        Text win = new Text("CONGRATS PLAYER "+GameModel.getInstance().Enemy()+" YOU HAVE WON THE GAME WITH THE SCORE OF: "+Integer.toString(GameModel.getInstance().GetScore()));
+        Text win = new Text("CONGRATS PLAYER "+GameModel.getInstance().Enemy()+", YOU HAVE WON THE GAME WITH THE SCORE OF: "+Integer.toString(GameModel.getInstance().GetScore()));
         //Setting the font of the text
         win.setFont(Font.font(null, FontWeight.BOLD, 25));
         //Setting the color of the text

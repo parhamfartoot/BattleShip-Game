@@ -7,12 +7,14 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.Observable;
 
-/*** GameModel is a singleton class that extends observable
- * GameModel keeps track of the boards used in game, the ship that should be placed on board(if any) and also which player should play next
- * as well as which phase of the game it currently is (placement phase or attack phase) every time a turn ends the GameModel is changed
- * and notifies it observer
- */
+
 public class GameModel extends Observable{
+	/* GameModel is a singleton class that extends observable
+	 * GameModel keeps track of the boards used in game, the ship that should be placed on board(if any) and also which player should play next
+	 * as well as which phase of the game it currently is (placement phase or attack phase) every time a turn ends the GameModel is changed
+	 * and notifies it observer
+	 */
+	
     private boolean InitPhase = true; //The placement phase
     private int player =1; //the player whom turn it is
     private Board player1; // Player1's board

@@ -33,7 +33,7 @@ public class View implements Observer {
         Scene scene = new Scene(root);
         Rotate(scene);
         stage.setScene(scene);
-        stage.setTitle("Welcome to BattleShips!");
+        stage.setTitle("Battleship");
         stage.show();
     }
 

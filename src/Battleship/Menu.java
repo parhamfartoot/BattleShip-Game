@@ -8,11 +8,10 @@ import javafx.scene.layout.FlowPane;
 
 // author Sin Hwan Lee, 1001666084, leesin2
  
-/** Start Menu shown pre-game and contains settings for the
- * game to be selected. 
- */
 public class Menu extends FlowPane {
-
+	/* Start Menu shown pre-game and contains settings for the
+	 * game to be selected. 
+	 */
     public Button button1, button2, button3;
 
     public Menu(int selection){
@@ -28,8 +27,8 @@ public class Menu extends FlowPane {
     	
     	// Single or Multi-Player Selection Menu
     	if (selection == 0){
-	    		this.button1= createMenuButton("Single Player!");
-	            this.button2 = createMenuButton("Two Player!");
+	    		this.button1= createMenuButton("Single Player");
+	            this.button2 = createMenuButton("Two Player");
 	            
 	    		button1.addEventHandler(MouseEvent.MOUSE_CLICKED,
 	                    new EventHandler<MouseEvent>() {

@@ -15,7 +15,7 @@ import static Battleship.AudioController.playLaserSound;
 public class Functions {
     Functions(){}
     
-    /*** Align the ship with the board. Inform the pins that are contained by the ship.
+    /* Align the ship with the board. Inform the pins that are contained by the ship.
      * @param Circle c.
      */
     static Boolean Align(Circle c) {

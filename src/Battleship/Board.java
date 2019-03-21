@@ -5,11 +5,11 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
-/*** A Board has a canvas, the size of this canvas is determined by the setting
- * at instantiation the background of the board is set and BoardBuilder is called to populate the board.
- */
-class Board extends Pane {
 
+class Board extends Pane {
+	/* A Board has a canvas, the size of this canvas is determined by the setting
+	 * at instantiation the background of the board is set and BoardBuilder is called to populate the board.
+	 */
     Canvas canvas;
 
      Board() {
