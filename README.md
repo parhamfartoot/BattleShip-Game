@@ -84,3 +84,13 @@ You can find a copy of the License at https://ggyoungboy.wordpress.com/2019/03/2
 Directory Structure
 ---
 
+All source code can be found in our `src` directory. This directory contains three main folders, `Art`, `Battleship`, and `Sound`. The *Battleship* folder contains the majority of the code for our game, mainly utilizing the Model-View-Controller design pattern. All artwork can be found in the *Art* folder, and music can be found in the *Sound* folder.
+
+---
+
+Code Documentation
+---
+
+In this section, we will overview the major classes and functions in our code.
+
+---
