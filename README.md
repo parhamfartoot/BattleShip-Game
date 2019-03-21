@@ -91,6 +91,18 @@ All source code can be found in our `src` directory. This directory contains thr
 Code Documentation
 ---
 
-In this section, we will overview the major classes and functions in our code.
+In this section, we will overview the major classes and functions in our code. 
 
----
+`Board.java`
+
+This class instantiates the canvas, which contains the background, pins, and ships. To populate the board, this class calls the `BoardBuilder.java` class. Using the Builder Design Pattern, the board is initialized with a specific height, width and pins. As well, our board class contains code that handles the mouse events for players when placing their ships.
+
+`GameModel.java`
+
+As this GameModel class extends Observable, it keeps track of the Board and all objects associated with it. As well, the GameModel uses the Singleton Design Pattern to ensure that there is only one GameModel being used. In this class, you can find code that allows the game to swtich between players, states, and modes. 
+
+`View.java`
+
+The view class contains the current GameModel, Stage, Menu and BorderPane. This class is imperative for our visual representation. This class handles transition screens and user prompts.
+
+
