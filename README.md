@@ -26,6 +26,16 @@ How to Run the Game
 ---
 
 1. Clone or Download the game from our git repository.
+2. Import the files into your integrated workspace environment.
+3. Navigate to the Battleship.java class, located at `src -> Battleship -> Battleship.java`.
+4. Run as Java Application or `Alt+Shift+X`.
+
+---
+
+How to Play
+---
+
+1. Click on the single of two player version of the game.
 2. Choose between *small, medium, or large* for the size of the game board.
 3. Player 1 must now place their four on the game board.
 4. i) The following steps depend on the game mode. If the two-player version was chosen, it is now Player 2's turn to place their ships.
