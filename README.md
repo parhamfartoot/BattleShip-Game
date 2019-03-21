@@ -7,6 +7,13 @@ A player has four ships to strategically place on their side of the game board. 
 
 ---
 
+Screenshots
+---
+
+![all](https://user-images.githubusercontent.com/47598577/54769544-c368fc00-4bd7-11e9-90a6-ae06c5ed0a89.jpg)
+
+---
+
 Installation
 ---
 
