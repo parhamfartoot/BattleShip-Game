@@ -12,11 +12,11 @@ Installation
 
 *Necessities*
 
-Ensure that you have an updated *Java Runtime Environment* installed on your system. *Java SE Runtime Environment 8* or later suffices. A link to JRE8 is as follows:
+Ensure that you have an updated *Java Runtime Environment* installed on your system. *Java SE Runtime Environment 8* or later suffices. A link to JRE8 is as follows
 
 https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html
 
-An integrated development environment is needed to run this game. We suggest using *Eclipse*. You can download Eclipse from:
+An integrated development environment is needed to run this game. We suggest using *Eclipse*. You can download Eclipse from
 
 https://www.eclipse.org/downloads/
 
@@ -46,6 +46,27 @@ How to Play
 7. Repeat steps 5 and 6 until a player eliminates the opposing player's ships.
 ---
 
+Author Info
+---
+CSC290H5 Group - ShotCallers
+
+*Team Members*
+
+Parham Fartoot, 1004625355, fartootp
+Shaquille David, 1001566931, davidsh4
+Neraj Manamperi, 1004275394, manampe4
+Sin Hwan Lee, 1001666084, leesin2
+Li Rui, 1004056246, lirui31
+---
+
 License
+---
+
+Built by the group *ShotCallers* in CSC290H5S at the University of Toronto Mississauga, under the MIT License. 
+
+You can find a copy of the License at https://ggyoungboy.wordpress.com/2019/03/21/shotcallers-mit-license/
+---
+
+Directory Structure
 ---
 
