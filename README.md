@@ -31,11 +31,17 @@ https://www.eclipse.org/downloads/
 
 How to Run the Game
 ---
-
+From the IDE:
 1. Clone or Download the game from our git repository.
 2. Import the files into your integrated workspace environment.
 3. Navigate to the Battleship.java class, located at `src -> Battleship -> Battleship.java`.
 4. Run as Java Application using `Alt+Shift+X`.
+
+From Luncher:
+1. Clone or Download the game from our git repository.
+3. Navigate to the Luncher.jar , located at `GameLuncher -> Luncher.jar`.
+4. Run as Java Application.
+
 
 ---
 
@@ -45,6 +51,9 @@ How to Play
 1. Click on the single or two player version of the game.
 2. Choose between *small, medium, or large* for the size of the game board.
 3. Player 1 must now place their four ships on the game board.
+    i) Player can select their ships by clicking on the ship icons located at the left most side of the screen.
+    ii) After selecting a ship the player can rotate the ship by pressing "Q" or "E".
+    ii) By clicking on a pin that located at the lower hakf of the board you can place your ship. The top-left part of your ship considering rotation will be the pin you have clicked.
 4. i) The following steps depend on the game mode. If the two-player mode was chosen, it is now Player 2's turn to place their ships.
    
    ii) If single-player mode was chosen, the AI will place its ships randomly.
@@ -140,4 +149,15 @@ public void update(Observable o, Object arg) {
         
 First, `public void update` ensures that the Pane is clear. Then, in a try-catch block, it runs the game if possible. This presents the Start Menu to the user. Otherwise, it will recognize that the game is already in progress. Update will identify which player is to take their turn, and will prompt them with a visual. Behind the scences, `update` notifies observers when it is time to switch.
 
+**`Functions.java`**
+The Function class contains all static functions used in the game. These functions handle some of the main parts of the game throughout the code.
+The functions include but are not limited to :
 
+`static void IsHit(Circle c) `:
+        Checks to see if a shot was a hit or not, and then reacts accordingly by changing the color of the pin and changing the player.
+        
+`static void Play(View view)`:
+        Plays the game and chooses what to do and what other static functions to call based on the player and the state of the game store in the GameModel.
+`static Boolean Align(Circle c)`:
+        Places the ship on the board by aliugning it with the Pin that has been clicked. Then it checks to see if the placed ship follows all the game rules (inside the boundries of the board, overlapping ships and etc.) accordingly it choses to remove the ship or to change the color of the pins contained by the ship.
+        

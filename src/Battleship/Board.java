@@ -37,8 +37,8 @@ class Board extends Pane {
 
         if (GameModel.getInstance().shipToPlace != null){
             GameModel.getInstance().GetPlayer().getChildren().remove(GameModel.getInstance().shipToPlace);
-            GameModel.getInstance().shipToPlace.setLayoutX(e.getX()+15);
-            GameModel.getInstance().shipToPlace.setLayoutY(e.getY()+15);
+            GameModel.getInstance().shipToPlace.setLayoutX(e.getX()-5);
+            GameModel.getInstance().shipToPlace.setLayoutY(e.getY());
             Board.this.getChildren().add(GameModel.getInstance().shipToPlace);
         }
     }
