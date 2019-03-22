@@ -69,10 +69,14 @@ How to Play
 1. Click on the single or two player version of the game.
 2. Choose between *small, medium, or large* for the size of the game board.
 3. Player 1 must now place their four ships on the game board.
-    i) Player can select their ships by clicking on the ship icons located at the left most side of the screen.
-    ii) After selecting a ship the player can rotate the ship by pressing "Q" or "E".
-    ii) By clicking on a pin that located at the lower hakf of the board you can place your ship. The top-left part of your ship considering rotation will be the pin you have clicked.
-4. i) The following steps depend on the game mode. If the two-player mode was chosen, it is now Player 2's turn to place their ships.
+
+    i) From the ship panel on the left of the application, select a ship by clicking.
+    
+    ii) After selecting a ship, the player can rotate the ship by pressing "Q" or "E", if necessary.
+ 
+4. The following steps depend on the game mode.
+
+   i) If the two-player mode was chosen, it is now Player 2's turn to place their ships.
    
    ii) If single-player mode was chosen, the AI will place its ships randomly.
 5. Player 1's turn to attack. Do so by clicking on a pin on the top half of the game board. If the shot is a miss, the pin will turn yellow. If the shot is a hit, the pin will turn red.
@@ -141,15 +145,17 @@ public void update(Observable o, Object arg) {
 First, `public void update` ensures that the Pane is clear. Then, in a try-catch block, it runs the game if possible. This presents the Start Menu to the user. Otherwise, it will recognize that the game is already in progress. Update will identify which player is to take their turn, and will prompt them with a visual. Behind the scences, `update` notifies observers when it is time to switch.
 
 **`Functions.java`**
-The Function class contains all static functions used in the game. These functions handle some of the main parts of the game throughout the code.
-The functions include but are not limited to :
-`static void IsHit(Circle c) `:
-        Checks to see if a shot was a hit or not, and then reacts accordingly by changing the color of the pin and changing the player.
+
+The Function class contains all static functions used in the game. These functions handle some of the main parts of the game throughout the code. The functions include:
+
+`static void isHit(Circle c)` - 
+    checks to see if a shot was a hit or miss, then reacts accordingly by changing the color of the pin and player.
         
-`static void Play(View view)`:
-        Plays the game and chooses what to do and what other static functions to call based on the player and the state of the game store in the GameModel.
-`static Boolean Align(Circle c)`:
-        Places the ship on the board by aliugning it with the Pin that has been clicked. Then it checks to see if the placed ship follows all the game rules (inside the boundries of the board, overlapping ships and etc.) accordingly it choses to remove the ship or to change the color of the pins contained by the ship.
+`static void play(View view)` - 
+    plays the game and chooses what static functions to call based on the player and the state of the game.
+        
+`static Boolean align(Circle c)` - 
+        places the ship on the board by aligning it with the pin that has been clicked. Then, it checks to see if the ship follows all rules and guidelines (inside the boundries of the board, not overlapping other ships etc.). Finally, it decides whether to remove the ship or to change the color of the pins.
         
 ---
 
