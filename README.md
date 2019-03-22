@@ -151,8 +151,6 @@ The functions include but are not limited to :
 `static Boolean Align(Circle c)`:
         Places the ship on the board by aliugning it with the Pin that has been clicked. Then it checks to see if the placed ship follows all the game rules (inside the boundries of the board, overlapping ships and etc.) accordingly it choses to remove the ship or to change the color of the pins contained by the ship.
         
-
-=======
 ---
 
 License
