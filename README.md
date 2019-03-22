@@ -7,6 +7,24 @@ A player has four ships to strategically place on their side of the game board. 
 
 ---
 
+Author Info
+---
+CSC290H5 Group - ShotCallers
+
+*Team Members*
+
+Parham Fartoot, 1004625355, fartootp
+
+Shaquille David, 1001566931, davidsh4
+
+Neraj Manamperi, 1004275394, manampe4
+
+Sin Hwan Lee, 1001666084, leesin2
+
+Li Rui, 1004056246, lirui31
+
+---
+
 Screenshots
 ---
 
@@ -60,33 +78,6 @@ How to Play
 5. Player 1's turn to attack. Do so by clicking on a pin on the top half of the game board. If the shot is a miss, the pin will turn yellow. If the shot is a hit, the pin will turn red.
 6. Player 2 or AI's turn to attack.
 7. Repeat steps 5 and 6 until one player eliminates the opposing player's ships.
-
----
-
-Author Info
----
-CSC290H5 Group - ShotCallers
-
-*Team Members*
-
-Parham Fartoot, 1004625355, fartootp
-
-Shaquille David, 1001566931, davidsh4
-
-Neraj Manamperi, 1004275394, manampe4
-
-Sin Hwan Lee, 1001666084, leesin2
-
-Li Rui, 1004056246, lirui31
-
----
-
-License
----
-
-Built by the group *ShotCallers* in CSC290H5S at the University of Toronto Mississauga, under the MIT License. 
-
-You can find a copy of the License at https://ggyoungboy.wordpress.com/2019/03/21/shotcallers-mit-license/
 
 ---
 
@@ -152,7 +143,6 @@ First, `public void update` ensures that the Pane is clear. Then, in a try-catch
 **`Functions.java`**
 The Function class contains all static functions used in the game. These functions handle some of the main parts of the game throughout the code.
 The functions include but are not limited to :
-
 `static void IsHit(Circle c) `:
         Checks to see if a shot was a hit or not, and then reacts accordingly by changing the color of the pin and changing the player.
         
@@ -161,3 +151,16 @@ The functions include but are not limited to :
 `static Boolean Align(Circle c)`:
         Places the ship on the board by aliugning it with the Pin that has been clicked. Then it checks to see if the placed ship follows all the game rules (inside the boundries of the board, overlapping ships and etc.) accordingly it choses to remove the ship or to change the color of the pins contained by the ship.
         
+
+=======
+---
+
+License
+---
+
+Built by the group *ShotCallers* in CSC290H5S at the University of Toronto Mississauga, under the MIT License. 
+
+You can find a copy of the License at https://ggyoungboy.wordpress.com/2019/03/21/shotcallers-mit-license/
+
+
+
