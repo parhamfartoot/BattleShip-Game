@@ -24,4 +24,5 @@ Future Extensions
 
 ---
 How to implement the extentions: 
-For example the allowing the player to take another turn if a hit was landed extension can be implemented by changing the IsHit() function, so that the GameModel will only be changed and notify its observer if the shot was a miss or if it was the second hit.
+
+For example, the extension that allows the player to take another successive turn can be implemented by modifying the isHit() function in a such way that the GameModel will only notify/change observers if the shot was a miss.
