@@ -23,6 +23,8 @@ Future Extensions
 * Add a Leaderboard list. This list will rank players who win games with the least amount of moves. 
 
 ---
-How to implement the extentions: 
 
-For example, the extension that allows the player to take another successive turn can be implemented by modifying the isHit() function in a such way that the GameModel will only notify/change observers if the shot was a miss.
+How to Implement Extensions
+---
+
+Although some extensions mentioned above are difficult and would take long, other extensions are a quick fix. For example, the extension that allows the player to take another successive turn can be implemented by modifying the `isHit()` function in a such way that the GameModel will only notify/change observers if the shot was a miss.
