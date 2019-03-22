@@ -7,6 +7,24 @@ A player has four ships to strategically place on their side of the game board. 
 
 ---
 
+Author Info
+---
+CSC290H5 Group - ShotCallers
+
+*Team Members*
+
+Parham Fartoot, 1004625355, fartootp
+
+Shaquille David, 1001566931, davidsh4
+
+Neraj Manamperi, 1004275394, manampe4
+
+Sin Hwan Lee, 1001666084, leesin2
+
+Li Rui, 1004056246, lirui31
+
+---
+
 Screenshots
 ---
 
@@ -51,33 +69,6 @@ How to Play
 5. Player 1's turn to attack. Do so by clicking on a pin on the top half of the game board. If the shot is a miss, the pin will turn yellow. If the shot is a hit, the pin will turn red.
 6. Player 2 or AI's turn to attack.
 7. Repeat steps 5 and 6 until one player eliminates the opposing player's ships.
-
----
-
-Author Info
----
-CSC290H5 Group - ShotCallers
-
-*Team Members*
-
-Parham Fartoot, 1004625355, fartootp
-
-Shaquille David, 1001566931, davidsh4
-
-Neraj Manamperi, 1004275394, manampe4
-
-Sin Hwan Lee, 1001666084, leesin2
-
-Li Rui, 1004056246, lirui31
-
----
-
-License
----
-
-Built by the group *ShotCallers* in CSC290H5S at the University of Toronto Mississauga, under the MIT License. 
-
-You can find a copy of the License at https://ggyoungboy.wordpress.com/2019/03/21/shotcallers-mit-license/
 
 ---
 
@@ -139,5 +130,15 @@ public void update(Observable o, Object arg) {
 ```
         
 First, `public void update` ensures that the Pane is clear. Then, in a try-catch block, it runs the game if possible. This presents the Start Menu to the user. Otherwise, it will recognize that the game is already in progress. Update will identify which player is to take their turn, and will prompt them with a visual. Behind the scences, `update` notifies observers when it is time to switch.
+
+---
+
+License
+---
+
+Built by the group *ShotCallers* in CSC290H5S at the University of Toronto Mississauga, under the MIT License. 
+
+You can find a copy of the License at https://ggyoungboy.wordpress.com/2019/03/21/shotcallers-mit-license/
+
 
 
