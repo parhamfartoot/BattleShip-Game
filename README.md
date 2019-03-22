@@ -1,7 +1,7 @@
 Battleship
 ===
 
-A recreation of the world-renowned game, Battleship, using *java*.
+A recreation of the world-renowned game, Battleship, using *Java* and *JavaFX*.
 
 A player has four ships to strategically place on their side of the game board. Players take turns firing shots at the opponent's pins. If a ship is placed on that pin, it is recorded as a *hit*. Otherwise, it is recorded as a *miss*. The objective of the game is to sink all of your opponent's ships.
 
@@ -93,16 +93,51 @@ Code Documentation
 
 In this section, we will overview the major classes and functions in our code. 
 
-`Board.java`
+**`Board.java`**
 
-This class instantiates the canvas, which contains the background, pins, and ships. To populate the board, this class calls the `BoardBuilder.java` class. Using the Builder Design Pattern, the board is initialized with a specific height, width and pins. As well, our board class contains code that handles the mouse events for players when placing their ships.
+This class instantiates the canvas, which contains the background, pins, and ships. To populate the board, this class calls the `BoardBuilder.java` class. Using the Builder Design Pattern, the board is initialized with a specific height, width and pins. Most importantly, the board class contains code that handles the mouse events for players when placing their ships:
 
-`GameModel.java`
+```
+ private void Move(MouseEvent e){     
+        if (GameModel.getInstance().shipToPlace != null){
+            GameModel.getInstance().GetPlayer().getChildren().remove(GameModel.getInstance().shipToPlace);
+            GameModel.getInstance().shipToPlace.setLayoutX(e.getX()+15);
+            GameModel.getInstance().shipToPlace.setLayoutY(e.getY()+15);
+            Board.this.getChildren().add(GameModel.getInstance().shipToPlace);
+        }
+    }
+```
 
-As this GameModel class extends Observable, it keeps track of the Board and all objects associated with it. As well, the GameModel uses the Singleton Design Pattern to ensure that there is only one GameModel being used. In this class, you can find code that allows the game to swtich between players, states, and modes. 
+When the player clicks on the ship, it removes it from the ChooserPanel and follows the mouse cursor. When clicked on an appropriate pin, the ship is placed on the Board. To make it easier for the player to see which pin their ship is being placed on, we offset the x and y location by 15 units each. 
 
-`View.java`
+**`GameModel.java`**
+
+As this GameModel class extends Observable, it keeps track of the Board and all objects associated with it. As well, the GameModel uses the Singleton Design Pattern to ensure that there is only one GameModel being used. We see this as `static GameModel getInstance()` is automatically set to `single_instance`. 
+
+This class contains code that allows the game to swtich between players, states, and modes. This class contains many helper functions that are used across the repository, such as `int GetScore()`, `void MakeBoard()`, and `void setMultiplayer`. 
+
+**`View.java`**
 
 The view class contains the current GameModel, Stage, Menu and BorderPane. This class is imperative for our visual representation. This class handles transition screens and user prompts.
+
+The main function in this class `public void update`:
+
+```
+public void update(Observable o, Object arg) {
+        root.getChildren().clear();
+        if (model.getSelection() > 1) {
+            try {
+                Play(this);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            stage.setTitle("Player " + model.Turn());
+        } else {
+            this.root.setCenter(new Menu(model.getSelection()));
+            stage.setTitle("Player " + model.Turn());
+        }
+```
+        
+First, `public void update` ensures that the Pane is clear. Then, in a try-catch block, it runs the game if possible. This presents the Start Menu to the user. Otherwise, it will recognize that the game is already in progress. Update will identify which player is to take their turn, and will prompt them with a visual. Behind the scences, `update` notifies observers when it is time to switch.
 
 
