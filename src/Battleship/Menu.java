@@ -82,7 +82,7 @@ public class Menu extends FlowPane {
             this.getChildren().add(button3);
     	}
     }
-    public Button createMenuButton(String msg){
+    Button createMenuButton(String msg){
     	Button button = new Button(msg);
 		button.setPrefWidth(1000+100);
 		button.setPrefHeight(100);

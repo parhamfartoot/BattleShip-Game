@@ -126,7 +126,7 @@ public class Functions {
     }
     static void IsHit(Circle c){
         //Checks if the shot fires was a hit and acts accordingly
-        playLaserSound();
+        playLaserSound(); //plays the sound for shot
         double hitX = c.getCenterX(); //appropriate X-axis value of shot fired on enemy board
         double hitY = c.getCenterY() + Settings.getInstance().GetSize()[1]/2; //appropriate Y-axis value of shot fired on enemy board
         Board board = GameModel.getInstance().GetEnemy(); //Enemies board
@@ -150,7 +150,10 @@ public class Functions {
 
                 }
             }
-        }if (GameModel.getInstance().GetScore() == 700) {GameModel.getInstance().view.getRoot().setCenter(new WinScreen());}else {
+        }
+        if (GameModel.getInstance().GetScore() == 700) {
+            GameModel.getInstance().view.getRoot().setCenter(new WinScreen());} //Checks if any the player has won the game with the last shot
+        else {
         GameModel.getInstance().ChangeState();
             GameModel.getInstance().ChangePlayer();}
     }

@@ -23,3 +23,10 @@ Future Extensions
 * Add a Leaderboard list. This list will rank players who win games with the least amount of moves. 
 
 ---
+
+How to implement the extensions:
+	For example, allowing the player to take another turn if a hit was landed, can be achieved by 		notifying the GameModel observer by calling GameModel.notifyObservers(); , only if the shot was a miss 	or if it was the second hit. 
+
+
+ 
+

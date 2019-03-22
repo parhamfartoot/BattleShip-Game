@@ -11,7 +11,6 @@ import Battleship.Faction2.F2_Ship4;
 import javafx.scene.layout.GridPane;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 class ShipChooser extends GridPane {

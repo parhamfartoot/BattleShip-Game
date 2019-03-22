@@ -22,11 +22,6 @@ Installation
 Ensure that you have an updated *Java Runtime Environment* installed on your system. *Java SE Runtime Environment 8* or later suffices. A link to JRE8 is as follows
 
 https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html
-
-An integrated development environment is needed to run this game. We suggest using *Eclipse*. You can download Eclipse from
-
-https://www.eclipse.org/downloads/
-
 ---
 
 How to Run the Game
@@ -34,8 +29,8 @@ How to Run the Game
 
 1. Clone or Download the game from our git repository.
 2. Import the files into your integrated workspace environment.
-3. Navigate to the Battleship.java class, located at `src -> Battleship -> Battleship.java`.
-4. Run as Java Application using `Alt+Shift+X`.
+3. Navigate to the Luncher.jar, located at `GameLuncher -> Luncher.jar `.
+4. Run the Java Application by clicking on Luncher.jar.
 
 ---
 
@@ -45,6 +40,10 @@ How to Play
 1. Click on the single or two player version of the game.
 2. Choose between *small, medium, or large* for the size of the game board.
 3. Player 1 must now place their four ships on the game board.
+	3.1 Player can Rotate their pressing keys "Q" and "E".
+	3.2 player can player their ship by clicking on a pin that's located at the lower half of the screen.
+	3.3 The pin that the players click on will be the top, left most part of the ship based on the rotation. 
+
 4. i) The following steps depend on the game mode. If the two-player mode was chosen, it is now Player 2's turn to place their ships.
    
    ii) If single-player mode was chosen, the AI will place its ships randomly.
@@ -94,3 +93,20 @@ Code Documentation
 In this section, we will overview the major classes and functions in our code.
 
 ---
+Main Classes:
+	
+	Functions.java: This class contains all the main static functions used in the game
+		IsHit(Circle c): Checks if a shot fired was a hit and then changes the pins accordingly
+		
+		Align(Circle c): Aligns the ship that player has chosen to place with the board and places it on the board.
+		
+		Play(View view): Plays the game and chooses what should be displayed based on the state of the game
+	
+	GameModel.java: This is a singleton class that stores important information about the game such as the boards for each player, the ships 		that need to be placed and etc.
+
+	Pin.java: This class represents the pins that populate the board, when clicked, based on the location of the pin and the state of the game these 	pins call the according functions such as Align() or IsHit().
+
+	Board.java: The board class is what players interact with in order to play the game. At instantiation it call the BoardBuilder to populate the 		board with pins. Also when the mouse is moved on the board , if the player has chosen a ship to place, that ship will be drawn as the cursor 		moves.
+	
+	View.java: View is our view class in mvc and it is also the observer of GameModel it creates a stage and every time the state of the game and 		the player in GameModel is changed it plays the nest turn.
+

@@ -42,9 +42,7 @@ public class Pin {
                 // Checks if the player has clicked on the appropriate half of the map and that pin has not been clicked before
                 if ((model.shipToPlace != null)&& !this.hasClicked) {
                     // Places the ship that has been chosen by player on the board
-
                     if(Align(this.c)) this.hasClicked = true;
-
                     // If the player has placed all their ships, moves to the next player
                     if (model.count == 4) {
                         model.count = 0;

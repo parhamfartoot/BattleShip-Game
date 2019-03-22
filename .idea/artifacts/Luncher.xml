@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Luncher">
+    <output-path>$PROJECT_DIR$/out/artifacts/Luncher</output-path>
+    <root id="archive" name="BB.jar">
+      <element id="module-output" name="BB" />
+    </root>
+  </artifact>
+</component>
